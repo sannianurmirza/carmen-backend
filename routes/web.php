@@ -297,7 +297,16 @@ $registerCarmenRoutes = function () {
 
         // Admin-only routes (Sensitive administrative actions)
         Route::middleware('role:admin')->group(function () {
+            // User Management Endpoints
             Route::get('/users', [UserController::class, 'index']);
+            Route::post('/users', [UserController::class, 'store'])->middleware('carmen.csrf');
+            Route::get('/users/{id}', [UserController::class, 'show'])->whereNumber('id');
+            Route::put('/users/{id}', [UserController::class, 'update'])->whereNumber('id')->middleware('carmen.csrf');
+            Route::patch('/users/{id}/status', [UserController::class, 'updateStatus'])->whereNumber('id')->middleware('carmen.csrf');
+            Route::put('/users/{id}/status', [UserController::class, 'updateStatus'])->whereNumber('id')->middleware('carmen.csrf');
+            Route::put('/settings/users/{id}/password', [UserController::class, 'resetPassword'])->whereNumber('id')->middleware('carmen.csrf');
+            Route::put('/users/{id}/password', [UserController::class, 'resetPassword'])->whereNumber('id')->middleware('carmen.csrf');
+
             Route::delete('/catering/{id}', [CateringController::class, 'destroy'])->whereNumber('id')->middleware('carmen.csrf');
             Route::post('/reward-punishment/periods/{id}/finalize', [RewardPunishmentController::class, 'finalize'])->whereNumber('id')->middleware('carmen.csrf');
             Route::post('/menu-plans/{id}/finalize', function ($id) {
