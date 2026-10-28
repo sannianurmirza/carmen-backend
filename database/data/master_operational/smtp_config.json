@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "smtp_host": "smtp.company.internal",
+    "smtp_port": 587,
+    "smtp_username": "catering-noreply@company.internal",
+    "smtp_password_encrypted": null,
+    "email_sender": "catering-noreply@company.internal",
+    "sender_name": "CARMEN Catering System",
+    "use_tls": true,
+    "use_ssl": false,
+    "app_url": "https://catering.company.internal/catering-ir",
+    "is_active": true,
+    "updated_at": null,
+    "updated_by": null
+  }
+]

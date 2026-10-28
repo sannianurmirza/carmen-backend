@@ -1,0 +1,30 @@
+{
+  "catering": {
+    "count": 5,
+    "file": "backend-laravel\\database\\data\\master_operational\\catering.json"
+  },
+  "scorerule": {
+    "count": 10,
+    "file": "backend-laravel\\database\\data\\master_operational\\scorerule.json"
+  },
+  "punishment_rule_version": {
+    "count": 42,
+    "file": "backend-laravel\\database\\data\\master_operational\\punishment_rule_version.json"
+  },
+  "bahanstandar": {
+    "count": 201,
+    "file": "backend-laravel\\database\\data\\master_operational\\bahanstandar.json"
+  },
+  "standarberat": {
+    "count": 98,
+    "file": "backend-laravel\\database\\data\\master_operational\\standarberat.json"
+  },
+  "auditkriteria": {
+    "count": 54,
+    "file": "backend-laravel\\database\\data\\master_operational\\auditkriteria.json"
+  },
+  "smtp_config": {
+    "count": 1,
+    "file": "backend-laravel\\database\\data\\master_operational\\smtp_config.json"
+  }
+}

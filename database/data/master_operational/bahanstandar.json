@@ -1,0 +1,2012 @@
+[
+  {
+    "id": 1,
+    "nama": "Nasi Putih",
+    "standar_kalori": 178.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 2,
+    "nama": "Nasi",
+    "standar_kalori": 178.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 3,
+    "nama": "Ayam",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 4,
+    "nama": "Ayam bakar",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 5,
+    "nama": "Ayam balado",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 6,
+    "nama": "Ayam bumbu bali",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 7,
+    "nama": "Ayam bumbu kacang",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 8,
+    "nama": "Ayam bumbu kecap",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 9,
+    "nama": "Ayam bumbu kuning",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 10,
+    "nama": "Ayam bumbu rujak",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 11,
+    "nama": "Ayam geprek",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 12,
+    "nama": "Ayam goreng",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 13,
+    "nama": "Ayam goreng srundeng",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 14,
+    "nama": "Ayam goreng tepung",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 15,
+    "nama": "Ayam kare",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 16,
+    "nama": "Ayam kentucky",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 17,
+    "nama": "Ayam kremes",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 18,
+    "nama": "Ayam opor",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 19,
+    "nama": "Ayam panggang",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 20,
+    "nama": "Ayam sate",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 21,
+    "nama": "Baby corn",
+    "standar_kalori": 33.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 22,
+    "nama": "Bandeng goreng",
+    "standar_kalori": 129.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 23,
+    "nama": "Bawang Merah",
+    "standar_kalori": 39.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 24,
+    "nama": "Bawang Putih",
+    "standar_kalori": 95.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 25,
+    "nama": "Bayam",
+    "standar_kalori": 36.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 26,
+    "nama": "Beras giling masak nasi",
+    "standar_kalori": 178.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 27,
+    "nama": "Blimbing wuluh",
+    "standar_kalori": 31.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 28,
+    "nama": "Brokoli merah (kol)",
+    "standar_kalori": 24.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 29,
+    "nama": "Brokoli putih (kol)",
+    "standar_kalori": 24.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 30,
+    "nama": "Bumbu pecel",
+    "standar_kalori": 452.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 31,
+    "nama": "Bumbu urap-urap",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 32,
+    "nama": "Buncis",
+    "standar_kalori": 35.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 33,
+    "nama": "Cabe",
+    "standar_kalori": 103.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 34,
+    "nama": "Cecek",
+    "standar_kalori": 122.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 35,
+    "nama": "Dadar jagung",
+    "standar_kalori": 140.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 36,
+    "nama": "Daging",
+    "standar_kalori": 207.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 37,
+    "nama": "Daging bumbu bali",
+    "standar_kalori": 207.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 38,
+    "nama": "Daging bumbu kecap",
+    "standar_kalori": 207.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 39,
+    "nama": "Daging bumbu rujak",
+    "standar_kalori": 207.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 40,
+    "nama": "Daging goreng",
+    "standar_kalori": 207.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 41,
+    "nama": "Daging Rendang",
+    "standar_kalori": 207.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 42,
+    "nama": "Daun kemangi",
+    "standar_kalori": 43.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 43,
+    "nama": "Daun kenikir",
+    "standar_kalori": 47.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 44,
+    "nama": "Daun singkong",
+    "standar_kalori": 73.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 45,
+    "nama": "Gorengan (pangsit)",
+    "standar_kalori": 365.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 46,
+    "nama": "Gremut",
+    "standar_kalori": 113.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 47,
+    "nama": "Gubis",
+    "standar_kalori": 24.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 48,
+    "nama": "Gula Pasir",
+    "standar_kalori": 364.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 49,
+    "nama": "Ikan asin",
+    "standar_kalori": 193.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 50,
+    "nama": "Ikan mujaer",
+    "standar_kalori": 113.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 51,
+    "nama": "Jagung",
+    "standar_kalori": 140.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 52,
+    "nama": "Jeruk",
+    "standar_kalori": 45.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 53,
+    "nama": "Jeruk nipis 1/2",
+    "standar_kalori": 37.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 54,
+    "nama": "Kacang panjang",
+    "standar_kalori": 357.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 55,
+    "nama": "Kacang tunggak/tolo",
+    "standar_kalori": 342.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 56,
+    "nama": "Kangkung",
+    "standar_kalori": 29.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 57,
+    "nama": "Kecambah",
+    "standar_kalori": 23.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 58,
+    "nama": "Kecambah kacang ijo",
+    "standar_kalori": 23.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 59,
+    "nama": "Kecambah kedele",
+    "standar_kalori": 67.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 60,
+    "nama": "Kecap",
+    "standar_kalori": 46.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 61,
+    "nama": "Kelapa parut (bumbu urap-urap)",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 62,
+    "nama": "Kelapa parut (serundeng)",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 63,
+    "nama": "Kemangi",
+    "standar_kalori": 43.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 64,
+    "nama": "Kembang kol",
+    "standar_kalori": 25.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 65,
+    "nama": "Kenikir",
+    "standar_kalori": 47.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 66,
+    "nama": "Kentang",
+    "standar_kalori": 83.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 67,
+    "nama": "Kentang goreng",
+    "standar_kalori": 83.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 68,
+    "nama": "Kering kentang",
+    "standar_kalori": 83.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 69,
+    "nama": "Kering tahu",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 70,
+    "nama": "Kering tempe",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 71,
+    "nama": "Kerupuk 2 pcs",
+    "standar_kalori": 342.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 72,
+    "nama": "Kerupuk udang",
+    "standar_kalori": 359.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 73,
+    "nama": "Ketimun",
+    "standar_kalori": 24.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 74,
+    "nama": "Kluwek",
+    "standar_kalori": 273.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 75,
+    "nama": "Kol",
+    "standar_kalori": 24.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 76,
+    "nama": "Krai",
+    "standar_kalori": 24.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 77,
+    "nama": "Krupuk",
+    "standar_kalori": 342.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 78,
+    "nama": "Kuah (Santan)",
+    "standar_kalori": 122.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 79,
+    "nama": "Kuah gulai (santan)",
+    "standar_kalori": 122.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 80,
+    "nama": "Kuah kare (santan)",
+    "standar_kalori": 122.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 81,
+    "nama": "Kuah lodeh (santan)",
+    "standar_kalori": 122.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 82,
+    "nama": "Kuah rawon (kluwak)",
+    "standar_kalori": 273.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 83,
+    "nama": "Kubis",
+    "standar_kalori": 24.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 84,
+    "nama": "Labu siam",
+    "standar_kalori": 26.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 85,
+    "nama": "Lele goreng",
+    "standar_kalori": 113.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 86,
+    "nama": "Lele goreng kremes",
+    "standar_kalori": 113.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 87,
+    "nama": "Makroni",
+    "standar_kalori": 363.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 88,
+    "nama": "Manisa",
+    "standar_kalori": 26.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 89,
+    "nama": "Melon",
+    "standar_kalori": 28.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 90,
+    "nama": "Mi su'un",
+    "standar_kalori": 360.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 91,
+    "nama": "Mie bihun (putih lurus)",
+    "standar_kalori": 360.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 92,
+    "nama": "Mie kering (putih/kuning berintik)",
+    "standar_kalori": 337.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 93,
+    "nama": "Minyak Goreng",
+    "standar_kalori": 902.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 94,
+    "nama": "Mujaer goreng",
+    "standar_kalori": 113.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 95,
+    "nama": "Nangka muda/tewel",
+    "standar_kalori": 51.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 96,
+    "nama": "Nasi goreng",
+    "standar_kalori": 178.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 97,
+    "nama": "Nasi putih (Beras giling masak nasi)",
+    "standar_kalori": 178.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 98,
+    "nama": "Nasi uduk",
+    "standar_kalori": 178.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 99,
+    "nama": "Nugget",
+    "standar_kalori": 302.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 100,
+    "nama": "Oseng jamur tiram",
+    "standar_kalori": 35.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 101,
+    "nama": "Oseng tahu",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 102,
+    "nama": "Oseng tempe",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 103,
+    "nama": "Pecel (sambal kacang)",
+    "standar_kalori": 452.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 104,
+    "nama": "Pentol",
+    "standar_kalori": 207.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 105,
+    "nama": "Pentol tahu",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 106,
+    "nama": "Pepaya",
+    "standar_kalori": 46.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 107,
+    "nama": "Pepaya muda",
+    "standar_kalori": 26.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 108,
+    "nama": "Perkedel kentang",
+    "standar_kalori": 83.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 109,
+    "nama": "Perkedel tahu",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 110,
+    "nama": "Pisang",
+    "standar_kalori": 99.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 111,
+    "nama": "Rempeyek",
+    "standar_kalori": 365.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 112,
+    "nama": "Salak",
+    "standar_kalori": 77.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 113,
+    "nama": "Sambal",
+    "standar_kalori": 103.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 114,
+    "nama": "Sambal bajak",
+    "standar_kalori": 103.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 115,
+    "nama": "Sambal bawang",
+    "standar_kalori": 103.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 116,
+    "nama": "Sambal goreng kentang",
+    "standar_kalori": 83.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 117,
+    "nama": "Sambal goreng tahu",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 118,
+    "nama": "Sambal goreng tempe",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 119,
+    "nama": "Sambal ijo",
+    "standar_kalori": 103.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 120,
+    "nama": "Sambal kecap",
+    "standar_kalori": 103.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 121,
+    "nama": "Sambal kemiri",
+    "standar_kalori": 103.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 122,
+    "nama": "Sambal terasi",
+    "standar_kalori": 103.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 123,
+    "nama": "Sambal terong",
+    "standar_kalori": 24.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 124,
+    "nama": "Santan",
+    "standar_kalori": 122.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 125,
+    "nama": "Saos campur sambal",
+    "standar_kalori": 103.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 126,
+    "nama": "Saos saja (saos tomat)",
+    "standar_kalori": 98.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 127,
+    "nama": "Sawi hijau",
+    "standar_kalori": 22.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 128,
+    "nama": "Sawi putih",
+    "standar_kalori": 22.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 129,
+    "nama": "Seledri",
+    "standar_kalori": 20.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 130,
+    "nama": "Semangka",
+    "standar_kalori": 28.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 131,
+    "nama": "Siomay",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 132,
+    "nama": "Sosis",
+    "standar_kalori": 452.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 133,
+    "nama": "Tahu",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 134,
+    "nama": "Tahu bacem",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 135,
+    "nama": "Tahu bali",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 136,
+    "nama": "Tahu bumbu bali",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 137,
+    "nama": "Tahu bumbu kare",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 138,
+    "nama": "Tahu bumbu kecap",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 139,
+    "nama": "Tahu dikukus",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 140,
+    "nama": "Tahu goreng",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 141,
+    "nama": "Tahu goreng tepung",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 142,
+    "nama": "Tahu kuning digoreng",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 143,
+    "nama": "Tahu pong",
+    "standar_kalori": 68.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 144,
+    "nama": "Tauge",
+    "standar_kalori": 23.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 145,
+    "nama": "Tauge kecil",
+    "standar_kalori": 23.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 146,
+    "nama": "Telur",
+    "standar_kalori": 162.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 147,
+    "nama": "Telur 1/2 balado",
+    "standar_kalori": 162.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 148,
+    "nama": "Telur asin 1/2",
+    "standar_kalori": 195.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 149,
+    "nama": "Telur asin utuh",
+    "standar_kalori": 195.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 150,
+    "nama": "Telur ayam (kukus)",
+    "standar_kalori": 162.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 151,
+    "nama": "Telur ayam 1/2",
+    "standar_kalori": 162.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 152,
+    "nama": "Telur ayam ceplok bumbu bali bali",
+    "standar_kalori": 162.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 153,
+    "nama": "Telur ayam utuh",
+    "standar_kalori": 162.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 154,
+    "nama": "Telur ayam utuh bumbu bali",
+    "standar_kalori": 162.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 155,
+    "nama": "Telur bebek (kukus)",
+    "standar_kalori": 195.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 156,
+    "nama": "Telur ceplok",
+    "standar_kalori": 162.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 157,
+    "nama": "Telur dadar",
+    "standar_kalori": 162.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 158,
+    "nama": "Telur kukus",
+    "standar_kalori": 162.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 159,
+    "nama": "Telur puyuh",
+    "standar_kalori": 158.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 160,
+    "nama": "Telur rebus",
+    "standar_kalori": 162.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 161,
+    "nama": "Telur utuh",
+    "standar_kalori": 162.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 162,
+    "nama": "Tempe",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 163,
+    "nama": "Tempe bacem",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 164,
+    "nama": "Tempe bali",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 165,
+    "nama": "Tempe bumbu bali",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 166,
+    "nama": "Tempe bumbu kare",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 167,
+    "nama": "Tempe bumbu kecap",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 168,
+    "nama": "Tempe goreng",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 169,
+    "nama": "Tempe goreng kremes",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 170,
+    "nama": "Tempe goreng tepung",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 171,
+    "nama": "Tempe krispi",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 172,
+    "nama": "Tempe kukus",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 173,
+    "nama": "Tempe mendoan",
+    "standar_kalori": 149.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 174,
+    "nama": "Terancam timun",
+    "standar_kalori": 24.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 175,
+    "nama": "Teri",
+    "standar_kalori": 170.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 176,
+    "nama": "Terong",
+    "standar_kalori": 24.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 177,
+    "nama": "Terong balado (terong campur bumbu)",
+    "standar_kalori": 24.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 178,
+    "nama": "Terong sambal",
+    "standar_kalori": 24.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 179,
+    "nama": "Timun",
+    "standar_kalori": 24.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 180,
+    "nama": "Trancam timun",
+    "standar_kalori": 24.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 181,
+    "nama": "Tumpang",
+    "standar_kalori": 163.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 182,
+    "nama": "Udang",
+    "standar_kalori": 113.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 183,
+    "nama": "Udang goreng",
+    "standar_kalori": 113.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 184,
+    "nama": "Udang goreng tepung (peyek udang)",
+    "standar_kalori": 113.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 185,
+    "nama": "Udang kecil",
+    "standar_kalori": 113.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 186,
+    "nama": "Udang krispy",
+    "standar_kalori": 113.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 187,
+    "nama": "Wortel",
+    "standar_kalori": 42.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 188,
+    "nama": "TONGKOL",
+    "standar_kalori": 113.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 189,
+    "nama": "Tomat",
+    "standar_kalori": 22.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 190,
+    "nama": "Mujaer pesmol",
+    "standar_kalori": 113.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 191,
+    "nama": "Bumbu kacang",
+    "standar_kalori": 452.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 192,
+    "nama": "Nanas",
+    "standar_kalori": 48.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 193,
+    "nama": "Mie Instant Premium",
+    "standar_kalori": 450.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 194,
+    "nama": "MIE",
+    "standar_kalori": 300.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 195,
+    "nama": "Mie Goreng",
+    "standar_kalori": 337.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 196,
+    "nama": "Sambal Teri",
+    "standar_kalori": 103.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 197,
+    "nama": "Oseng tempe pedes",
+    "standar_kalori": 150.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 198,
+    "nama": "Beras Giling",
+    "standar_kalori": 360.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 199,
+    "nama": "Beras",
+    "standar_kalori": 180.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 200,
+    "nama": "Daging Sapi",
+    "standar_kalori": 260.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 201,
+    "nama": "tahu telur",
+    "standar_kalori": 115.0,
+    "standar_berat": null,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": "2026-10-19 08:38:57.483332",
+    "updated_by": 20
+  }
+]

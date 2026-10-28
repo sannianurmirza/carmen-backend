@@ -1,0 +1,982 @@
+[
+  {
+    "id": 1,
+    "jenis_masakan": "KERINGAN (LALAPAN, URAP-URAP, PECEL)",
+    "item_role": "NASI/MIE",
+    "berat_gram": 240.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 2,
+    "jenis_masakan": "KERINGAN TUMIS (OSENG, CAPJAY, MIE)",
+    "item_role": "NASI/MIE",
+    "berat_gram": 240.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 3,
+    "jenis_masakan": "SAYUR BERKELUWEK (RAWON)",
+    "item_role": "NASI/MIE",
+    "berat_gram": 240.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 4,
+    "jenis_masakan": "SAYUR BERSANTAN",
+    "item_role": "NASI/MIE",
+    "berat_gram": 260.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 5,
+    "jenis_masakan": "SAYUR TIDAK BERSANTAN",
+    "item_role": "NASI/MIE",
+    "berat_gram": 240.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 6,
+    "jenis_masakan": "MIE AYAM",
+    "item_role": "NASI/MIE",
+    "berat_gram": 200.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 7,
+    "jenis_masakan": "NASI GORENG",
+    "item_role": "NASI/MIE",
+    "berat_gram": 240.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 8,
+    "jenis_masakan": "NASI KUNING",
+    "item_role": "NASI/MIE",
+    "berat_gram": 240.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 9,
+    "jenis_masakan": "MIE AYAM",
+    "item_role": "LONTONG",
+    "berat_gram": 140.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 10,
+    "jenis_masakan": "GADO-GADO",
+    "item_role": "LONTONG",
+    "berat_gram": 140.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 11,
+    "jenis_masakan": "KERINGAN (LALAPAN, URAP-URAP, PECEL)",
+    "item_role": "SAYUR",
+    "berat_gram": 80.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 12,
+    "jenis_masakan": "KERINGAN TUMIS (OSENG, CAPJAY, MIE)",
+    "item_role": "SAYUR",
+    "berat_gram": 85.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 13,
+    "jenis_masakan": "SAYUR BERKELUWEK (RAWON)",
+    "item_role": "SAYUR",
+    "berat_gram": 120.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 14,
+    "jenis_masakan": "SAYUR BERSANTAN",
+    "item_role": "SAYUR",
+    "berat_gram": 180.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 15,
+    "jenis_masakan": "SAYUR TIDAK BERSANTAN",
+    "item_role": "SAYUR",
+    "berat_gram": 90.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 16,
+    "jenis_masakan": "MIE AYAM",
+    "item_role": "SAYUR",
+    "berat_gram": 32.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 17,
+    "jenis_masakan": "GADO-GADO",
+    "item_role": "SAYUR",
+    "berat_gram": 105.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 18,
+    "jenis_masakan": "NASI GORENG",
+    "item_role": "SAYUR",
+    "berat_gram": 40.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 19,
+    "jenis_masakan": "NASI KUNING",
+    "item_role": "SAYUR",
+    "berat_gram": 40.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 20,
+    "jenis_masakan": "KERINGAN (LALAPAN, URAP-URAP, PECEL)",
+    "item_role": "LAUK UTAMA",
+    "berat_gram": 60.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 21,
+    "jenis_masakan": "KERINGAN TUMIS (OSENG, CAPJAY, MIE)",
+    "item_role": "LAUK UTAMA",
+    "berat_gram": 80.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 22,
+    "jenis_masakan": "SAYUR BERKELUWEK (RAWON)",
+    "item_role": "LAUK UTAMA",
+    "berat_gram": 50.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 23,
+    "jenis_masakan": "SAYUR BERSANTAN",
+    "item_role": "LAUK UTAMA",
+    "berat_gram": 50.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 24,
+    "jenis_masakan": "SAYUR TIDAK BERSANTAN",
+    "item_role": "LAUK UTAMA",
+    "berat_gram": 80.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 25,
+    "jenis_masakan": "MIE AYAM",
+    "item_role": "LAUK UTAMA",
+    "berat_gram": 40.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 26,
+    "jenis_masakan": "GADO-GADO",
+    "item_role": "LAUK UTAMA",
+    "berat_gram": 60.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 27,
+    "jenis_masakan": "NASI GORENG",
+    "item_role": "LAUK UTAMA",
+    "berat_gram": 60.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 28,
+    "jenis_masakan": "NASI KUNING",
+    "item_role": "LAUK UTAMA",
+    "berat_gram": 60.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 29,
+    "jenis_masakan": "KERINGAN (LALAPAN, URAP-URAP, PECEL)",
+    "item_role": "LAUK PENDAMPING 1",
+    "berat_gram": 40.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 30,
+    "jenis_masakan": "KERINGAN TUMIS (OSENG, CAPJAY, MIE)",
+    "item_role": "LAUK PENDAMPING 1",
+    "berat_gram": 40.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 31,
+    "jenis_masakan": "SAYUR BERKELUWEK (RAWON)",
+    "item_role": "LAUK PENDAMPING 1",
+    "berat_gram": 35.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 32,
+    "jenis_masakan": "SAYUR BERSANTAN",
+    "item_role": "LAUK PENDAMPING 1",
+    "berat_gram": 47.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 33,
+    "jenis_masakan": "SAYUR TIDAK BERSANTAN",
+    "item_role": "LAUK PENDAMPING 1",
+    "berat_gram": 45.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 34,
+    "jenis_masakan": "GADO-GADO",
+    "item_role": "LAUK PENDAMPING 1",
+    "berat_gram": 30.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 35,
+    "jenis_masakan": "NASI GORENG",
+    "item_role": "LAUK PENDAMPING 1",
+    "berat_gram": 60.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 36,
+    "jenis_masakan": "NASI KUNING",
+    "item_role": "LAUK PENDAMPING 1",
+    "berat_gram": 60.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 37,
+    "jenis_masakan": "KERINGAN (LALAPAN, URAP-URAP, PECEL)",
+    "item_role": "LAUK PENDAMPING 2",
+    "berat_gram": 35.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 38,
+    "jenis_masakan": "KERINGAN TUMIS (OSENG, CAPJAY, MIE)",
+    "item_role": "LAUK PENDAMPING 2",
+    "berat_gram": 35.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 39,
+    "jenis_masakan": "SAYUR BERKELUWEK (RAWON)",
+    "item_role": "LAUK PENDAMPING 2",
+    "berat_gram": 30.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 40,
+    "jenis_masakan": "SAYUR BERSANTAN",
+    "item_role": "LAUK PENDAMPING 2",
+    "berat_gram": 35.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 41,
+    "jenis_masakan": "SAYUR TIDAK BERSANTAN",
+    "item_role": "LAUK PENDAMPING 2",
+    "berat_gram": 35.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 42,
+    "jenis_masakan": "GADO-GADO",
+    "item_role": "LAUK PENDAMPING 2",
+    "berat_gram": 30.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 43,
+    "jenis_masakan": "NASI GORENG",
+    "item_role": "LAUK PENDAMPING 2",
+    "berat_gram": 30.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 44,
+    "jenis_masakan": "NASI KUNING",
+    "item_role": "LAUK PENDAMPING 2",
+    "berat_gram": 30.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 45,
+    "jenis_masakan": "KERINGAN (LALAPAN, URAP-URAP, PECEL)",
+    "item_role": "BUAH",
+    "berat_gram": 80.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 46,
+    "jenis_masakan": "KERINGAN TUMIS (OSENG, CAPJAY, MIE)",
+    "item_role": "BUAH",
+    "berat_gram": 90.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 47,
+    "jenis_masakan": "SAYUR BERKELUWEK (RAWON)",
+    "item_role": "BUAH",
+    "berat_gram": 55.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 48,
+    "jenis_masakan": "SAYUR BERSANTAN",
+    "item_role": "BUAH",
+    "berat_gram": 90.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 49,
+    "jenis_masakan": "SAYUR TIDAK BERSANTAN",
+    "item_role": "BUAH",
+    "berat_gram": 90.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 50,
+    "jenis_masakan": "MIE AYAM",
+    "item_role": "BUAH",
+    "berat_gram": 75.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 51,
+    "jenis_masakan": "GADO-GADO",
+    "item_role": "BUAH",
+    "berat_gram": 45.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 52,
+    "jenis_masakan": "NASI GORENG",
+    "item_role": "BUAH",
+    "berat_gram": 50.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 53,
+    "jenis_masakan": "NASI KUNING",
+    "item_role": "BUAH",
+    "berat_gram": 50.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 54,
+    "jenis_masakan": "KERINGAN (LALAPAN, URAP-URAP, PECEL)",
+    "item_role": "KERUPUK/PANGSIT GORENG",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 55,
+    "jenis_masakan": "KERINGAN TUMIS (OSENG, CAPJAY, MIE)",
+    "item_role": "KERUPUK/PANGSIT GORENG",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 56,
+    "jenis_masakan": "SAYUR BERKELUWEK (RAWON)",
+    "item_role": "KERUPUK/PANGSIT GORENG",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 57,
+    "jenis_masakan": "SAYUR BERSANTAN",
+    "item_role": "KERUPUK/PANGSIT GORENG",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 58,
+    "jenis_masakan": "SAYUR TIDAK BERSANTAN",
+    "item_role": "KERUPUK/PANGSIT GORENG",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 59,
+    "jenis_masakan": "MIE AYAM",
+    "item_role": "KERUPUK/PANGSIT GORENG",
+    "berat_gram": 15.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 60,
+    "jenis_masakan": "GADO-GADO",
+    "item_role": "KERUPUK/PANGSIT GORENG",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 61,
+    "jenis_masakan": "NASI GORENG",
+    "item_role": "KERUPUK/PANGSIT GORENG",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 62,
+    "jenis_masakan": "NASI KUNING",
+    "item_role": "KERUPUK/PANGSIT GORENG",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 63,
+    "jenis_masakan": "KERINGAN (LALAPAN, URAP-URAP, PECEL)",
+    "item_role": "SAMBAL",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 64,
+    "jenis_masakan": "KERINGAN TUMIS (OSENG, CAPJAY, MIE)",
+    "item_role": "SAMBAL",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 65,
+    "jenis_masakan": "SAYUR BERKELUWEK (RAWON)",
+    "item_role": "SAMBAL",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 66,
+    "jenis_masakan": "SAYUR BERSANTAN",
+    "item_role": "SAMBAL",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 67,
+    "jenis_masakan": "SAYUR TIDAK BERSANTAN",
+    "item_role": "SAMBAL",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 68,
+    "jenis_masakan": "MIE AYAM",
+    "item_role": "SAMBAL",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 69,
+    "jenis_masakan": "GADO-GADO",
+    "item_role": "SAMBAL",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 70,
+    "jenis_masakan": "NASI GORENG",
+    "item_role": "SAMBAL",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 71,
+    "jenis_masakan": "NASI KUNING",
+    "item_role": "SAMBAL",
+    "berat_gram": 10.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 72,
+    "jenis_masakan": "MIE AYAM",
+    "item_role": "SAOS/KECAP MIE AYAM",
+    "berat_gram": 20.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 73,
+    "jenis_masakan": "GADO-GADO",
+    "item_role": "BUMBU GADO-GADO",
+    "berat_gram": 60.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 74,
+    "jenis_masakan": "KERINGAN (LALAPAN, URAP-URAP, PECEL)",
+    "item_role": "BUMBU URAP-URAP",
+    "berat_gram": 25.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 75,
+    "jenis_masakan": "NASI GORENG",
+    "item_role": "BUMBU URAP-URAP",
+    "berat_gram": 25.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 76,
+    "jenis_masakan": "NASI KUNING",
+    "item_role": "BUMBU URAP-URAP",
+    "berat_gram": 25.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 77,
+    "jenis_masakan": "KERINGAN (LALAPAN, URAP-URAP, PECEL)",
+    "item_role": "BUMBU/SAMBAL PECEL",
+    "berat_gram": 35.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 78,
+    "jenis_masakan": "NASI GORENG",
+    "item_role": "BUMBU/SAMBAL PECEL",
+    "berat_gram": 35.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 79,
+    "jenis_masakan": "NASI KUNING",
+    "item_role": "BUMBU/SAMBAL PECEL",
+    "berat_gram": 35.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 80,
+    "jenis_masakan": "KERINGAN (LALAPAN, URAP-URAP, PECEL)",
+    "item_role": "BUMBU LAIN-LAIN",
+    "berat_gram": 22.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 81,
+    "jenis_masakan": "KERINGAN TUMIS (OSENG, CAPJAY, MIE)",
+    "item_role": "BUMBU LAIN-LAIN",
+    "berat_gram": 22.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 82,
+    "jenis_masakan": "SAYUR BERKELUWEK (RAWON)",
+    "item_role": "BUMBU LAIN-LAIN",
+    "berat_gram": 22.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 83,
+    "jenis_masakan": "SAYUR BERSANTAN",
+    "item_role": "BUMBU LAIN-LAIN",
+    "berat_gram": 22.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 84,
+    "jenis_masakan": "SAYUR TIDAK BERSANTAN",
+    "item_role": "BUMBU LAIN-LAIN",
+    "berat_gram": 22.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 85,
+    "jenis_masakan": "MIE AYAM",
+    "item_role": "BUMBU LAIN-LAIN",
+    "berat_gram": 22.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 86,
+    "jenis_masakan": "GADO-GADO",
+    "item_role": "BUMBU LAIN-LAIN",
+    "berat_gram": 22.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 87,
+    "jenis_masakan": "NASI GORENG",
+    "item_role": "BUMBU LAIN-LAIN",
+    "berat_gram": 22.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 88,
+    "jenis_masakan": "NASI KUNING",
+    "item_role": "BUMBU LAIN-LAIN",
+    "berat_gram": 22.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 89,
+    "jenis_masakan": "MIE AYAM",
+    "item_role": "PUDING",
+    "berat_gram": 50.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 90,
+    "jenis_masakan": "GADO-GADO",
+    "item_role": "PUDING",
+    "berat_gram": 50.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 91,
+    "jenis_masakan": "KERINGAN (LALAPAN, URAP-URAP, PECEL)",
+    "item_role": "LAUK PENDAMPING 1 & 2",
+    "berat_gram": 75.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 92,
+    "jenis_masakan": "KERINGAN TUMIS (OSENG, CAPJAY, MIE)",
+    "item_role": "LAUK PENDAMPING 1 & 2",
+    "berat_gram": 75.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 93,
+    "jenis_masakan": "SAYUR BERKELUWEK (RAWON)",
+    "item_role": "LAUK PENDAMPING 1 & 2",
+    "berat_gram": 65.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 94,
+    "jenis_masakan": "SAYUR BERSANTAN",
+    "item_role": "LAUK PENDAMPING 1 & 2",
+    "berat_gram": 82.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 95,
+    "jenis_masakan": "SAYUR TIDAK BERSANTAN",
+    "item_role": "LAUK PENDAMPING 1 & 2",
+    "berat_gram": 80.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 96,
+    "jenis_masakan": "GADO-GADO",
+    "item_role": "LAUK PENDAMPING 1 & 2",
+    "berat_gram": 60.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 97,
+    "jenis_masakan": "NASI KUNING",
+    "item_role": "LAUK PENDAMPING 1 & 2",
+    "berat_gram": 65.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  },
+  {
+    "id": 98,
+    "jenis_masakan": "NASI GORENG",
+    "item_role": "LAUK PENDAMPING 1 & 2",
+    "berat_gram": 90.0,
+    "satuan": "gram",
+    "is_active": 1,
+    "updated_at": null,
+    "updated_by": null
+  }
+]

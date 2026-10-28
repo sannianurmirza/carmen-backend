@@ -1,0 +1,434 @@
+[
+  {
+    "id": 1,
+    "sisi": "A",
+    "kategori": "B A H A N",
+    "material": "Beras",
+    "deskripsi": "Beras diperiksa, kotoran dipisahkan, dicuci bersih.",
+    "point": 10.0
+  },
+  {
+    "id": 2,
+    "sisi": "A",
+    "kategori": "B A H A N",
+    "material": "Sayur",
+    "deskripsi": "Sayur diperiksa, kotoran dipisahkan, dicuci bersih.",
+    "point": 10.0
+  },
+  {
+    "id": 3,
+    "sisi": "A",
+    "kategori": "B A H A N",
+    "material": "Lauk-pauk",
+    "deskripsi": "Diperiksa, kotoran dipisahkan, dicuci bersih.",
+    "point": 10.0
+  },
+  {
+    "id": 4,
+    "sisi": "A",
+    "kategori": "B A H A N",
+    "material": "Buah",
+    "deskripsi": "Buah diperiksa,kotoran dipisahkan,dicuci bersih.",
+    "point": 10.0
+  },
+  {
+    "id": 5,
+    "sisi": "A",
+    "kategori": "B A H A N",
+    "material": "Minyak goreng,",
+    "deskripsi": "Masih jernih (2X pemakaian) dan botol/",
+    "point": 10.0
+  },
+  {
+    "id": 6,
+    "sisi": "A",
+    "kategori": "PERLENGKAPAN",
+    "material": "Alat goreng",
+    "deskripsi": "Alat goreng/pengorengan  bersih & tempatnya bersih.",
+    "point": 20.0
+  },
+  {
+    "id": 7,
+    "sisi": "A",
+    "kategori": "PERLENGKAPAN",
+    "material": "Alat rebus",
+    "deskripsi": "Penempatan bersih,bendanya bersih (bagian dalam)",
+    "point": 20.0
+  },
+  {
+    "id": 8,
+    "sisi": "A",
+    "kategori": "PERLENGKAPAN",
+    "material": "Alat masak nasi",
+    "deskripsi": "Penempatan bersih,bendanya bersih.",
+    "point": 20.0
+  },
+  {
+    "id": 9,
+    "sisi": "A",
+    "kategori": "PERLENGKAPAN",
+    "material": "Tempat sendok & Sendok",
+    "deskripsi": "Penempatan bersih,bendanya bersih & layak pakai.",
+    "point": 20.0
+  },
+  {
+    "id": 10,
+    "sisi": "A",
+    "kategori": "PERLENGKAPAN",
+    "material": "Tray makanan & Tempat tray",
+    "deskripsi": "Penempatan bersih,bendanya bersih & layak pakai.",
+    "point": 20.0
+  },
+  {
+    "id": 11,
+    "sisi": "A",
+    "kategori": "PERLENGKAPAN",
+    "material": "Tempat  Bahan Makanan",
+    "deskripsi": "Tersimpan dengan rapi,bersih & terpisah antara barang mentah & matang serta terpisah dari bahan beracun.",
+    "point": 20.0
+  },
+  {
+    "id": 12,
+    "sisi": "A",
+    "kategori": "PERLENGKAPAN",
+    "material": "Mobil untuk makanan",
+    "deskripsi": "Box bagian dalam bersih.",
+    "point": 20.0
+  },
+  {
+    "id": 13,
+    "sisi": "A",
+    "kategori": "PERLENGKAPAN",
+    "material": "Penggunaan Sandal",
+    "deskripsi": "Ada sandal khusus untuk digunakan di dalam dapur atau saat di dalam dapur karyawan tidak menggunakan sandal agar lantai tetap bersih.",
+    "point": 20.0
+  },
+  {
+    "id": 14,
+    "sisi": "A",
+    "kategori": "PENCUCIAN",
+    "material": "Tersedia tempat cuci",
+    "deskripsi": "Tempatnya bersih dan diarea",
+    "point": 25.0
+  },
+  {
+    "id": 15,
+    "sisi": "A",
+    "kategori": "PENCUCIAN",
+    "material": "Tersedia tempat cuci",
+    "deskripsi": "Tempatnya bersih dan  diarea",
+    "point": 25.0
+  },
+  {
+    "id": 16,
+    "sisi": "A",
+    "kategori": "PENCUCIAN",
+    "material": "Keset di area cuci alat memasak",
+    "deskripsi": "Ada keset karet di setiap tepi area cuci alat memasak yang ditumpuk dengan keset kain agar dapat menahan air dan tidak membasahi lantai dapur.",
+    "point": 25.0
+  },
+  {
+    "id": 17,
+    "sisi": "A",
+    "kategori": "PENCUCIAN",
+    "material": "Lantai & Dinding Dapur",
+    "deskripsi": "Selalu dalam keadaan bersih & kering.",
+    "point": 25.0
+  },
+  {
+    "id": 18,
+    "sisi": "A",
+    "kategori": "PENCUCIAN",
+    "material": "Air untuk mencuci",
+    "deskripsi": "Mengalir, jernih & tidak bau",
+    "point": 25.0
+  },
+  {
+    "id": 19,
+    "sisi": "A",
+    "kategori": "PENCUCIAN",
+    "material": "Sabun",
+    "deskripsi": "Dapat  membersihkan kotoran & lemak.",
+    "point": 25.0
+  },
+  {
+    "id": 20,
+    "sisi": "A",
+    "kategori": "LINGKUNGAN",
+    "material": "Lingkungan di",
+    "deskripsi": "Tidak terdapat bak sampah terbuka.",
+    "point": 25.0
+  },
+  {
+    "id": 21,
+    "sisi": "A",
+    "kategori": "LINGKUNGAN",
+    "material": "Lingkungan disekitar",
+    "deskripsi": "Tidak terdapat bak sampah terbuka",
+    "point": 25.0
+  },
+  {
+    "id": 22,
+    "sisi": "A",
+    "kategori": "LINGKUNGAN",
+    "material": "Ventilasi & Pencahayaan",
+    "deskripsi": "Cukup untuk sirkulasi udara sehingga",
+    "point": 25.0
+  },
+  {
+    "id": 23,
+    "sisi": "A",
+    "kategori": "LINGKUNGAN",
+    "material": "Penempatan alat kerja",
+    "deskripsi": "Teratur dan memperlancar pekerjaan.",
+    "point": 25.0
+  },
+  {
+    "id": 24,
+    "sisi": "A",
+    "kategori": "LIMBAH",
+    "material": "Cair",
+    "deskripsi": "Tersedia parit dalam dapur untuk mengalirkan air kotor dan tersedia penampung diluar dapur.",
+    "point": 15.0
+  },
+  {
+    "id": 25,
+    "sisi": "A",
+    "kategori": "LIMBAH",
+    "material": "Padat",
+    "deskripsi": "Tersedia box sampah tertutup dalam dapur sebagai penampung sementara. Ada bak sampah tertutup dihalaman.",
+    "point": 15.0
+  },
+  {
+    "id": 26,
+    "sisi": "A",
+    "kategori": "LIMBAH",
+    "material": "Pengelolaan limbah & daur ulang",
+    "deskripsi": "Ada proses pengelolaan limbah dan daur ulang bagi limbah yang masih berguna untuk lingkungan.",
+    "point": 10.0
+  },
+  {
+    "id": 27,
+    "sisi": "A",
+    "kategori": "LIMBAH",
+    "material": "Pengolahan limbah anorganik & daur ulang",
+    "deskripsi": "Ada proses pengelolaan limbah anorganik dan daur ulang bagi limbah yang masih berguna untuk lingkungan.",
+    "point": 10.0
+  },
+  {
+    "id": 28,
+    "sisi": "B",
+    "kategori": "PERLENGKAPAN",
+    "material": "Pengeringan Tray",
+    "deskripsi": "Dikeringkan di rak & tray tidak basah (jika diluar ruangan ditutup dengan plastik/kelambu).",
+    "point": 20.0
+  },
+  {
+    "id": 29,
+    "sisi": "B",
+    "kategori": "PERLENGKAPAN",
+    "material": "Kompor",
+    "deskripsi": "Bersih,layak pakai & disimpan diarea yang tidak berbahaya (tidak dekat bahan bakar minyak).",
+    "point": 20.0
+  },
+  {
+    "id": 30,
+    "sisi": "B",
+    "kategori": "PERLENGKAPAN",
+    "material": "Penyimpanan Bahan Bakar & Genset",
+    "deskripsi": "Tersimpan diarea khusus & terpisah dari bahan makanan (tidak dekat dengan barang/bahan yang mudah terbakar).",
+    "point": 20.0
+  },
+  {
+    "id": 31,
+    "sisi": "B",
+    "kategori": "PERLENGKAPAN",
+    "material": "Persiapan Penyajian",
+    "deskripsi": "Diatas meja bersih & memasukkan makanan ke tray dengan sarung tangan/plastik/Penjepit.",
+    "point": 20.0
+  },
+  {
+    "id": 32,
+    "sisi": "B",
+    "kategori": "PERLENGKAPAN",
+    "material": "Penyimpanan Buah",
+    "deskripsi": "Tersimpan dirak (tempat yang bersirkulasi) bersih sehinggan segar, tidak layu & tidak busuk.",
+    "point": 15.0
+  },
+  {
+    "id": 33,
+    "sisi": "B",
+    "kategori": "PERLENGKAPAN",
+    "material": "Pisau",
+    "deskripsi": "Bersih dan tidak berkarat",
+    "point": 20.0
+  },
+  {
+    "id": 34,
+    "sisi": "B",
+    "kategori": "PERLENGKAPAN",
+    "material": "Penempatan Makanan",
+    "deskripsi": "Seluruh yang ada pada item makanan diletakkan pada wadah yang sesuai (tidak boleh di kardus, ember, bak, dll)",
+    "point": 20.0
+  },
+  {
+    "id": 35,
+    "sisi": "B",
+    "kategori": "OTHERS",
+    "material": "Others",
+    "deskripsi": "Apakah/sudahkah dilakukan perbaikan dari temuan audit dibulan sebelumnya",
+    "point": 75.0
+  },
+  {
+    "id": 36,
+    "sisi": "B",
+    "kategori": "MAKANAN",
+    "material": "Nasi",
+    "deskripsi": "Bersih,hangat,matang (tidak pero) dan baru.",
+    "point": 15.0
+  },
+  {
+    "id": 37,
+    "sisi": "B",
+    "kategori": "MAKANAN",
+    "material": "Sayur",
+    "deskripsi": "Matang,Hangat & baru.(Berkuah dibungkus plastik)",
+    "point": 15.0
+  },
+  {
+    "id": 38,
+    "sisi": "B",
+    "kategori": "MAKANAN",
+    "material": "Lauk",
+    "deskripsi": "Matang,Hangat dan baru.",
+    "point": 15.0
+  },
+  {
+    "id": 39,
+    "sisi": "B",
+    "kategori": "MAKANAN",
+    "material": "Sambal",
+    "deskripsi": "Matang,Hangat dan baru.",
+    "point": 15.0
+  },
+  {
+    "id": 40,
+    "sisi": "B",
+    "kategori": "MAKANAN",
+    "material": "Buah",
+    "deskripsi": "Bersih,baru,segar,rasa memadai & dibungkus plastik (semangka,melon,pepaya).",
+    "point": 15.0
+  },
+  {
+    "id": 41,
+    "sisi": "B",
+    "kategori": "MAKANAN",
+    "material": "Krupuk",
+    "deskripsi": "Bersih,baru,renyah",
+    "point": 15.0
+  },
+  {
+    "id": 42,
+    "sisi": "B",
+    "kategori": "MAKANAN",
+    "material": "Rasa",
+    "deskripsi": "Sedap,Gurih (Layak santap),Tidak basi",
+    "point": 15.0
+  },
+  {
+    "id": 43,
+    "sisi": "B",
+    "kategori": "PEKERJA",
+    "material": "Jumlah Pekerja",
+    "deskripsi": "Jumlah pekerja sesuai order yang diberikan (1 orang per 100 rantang)",
+    "point": 25.0
+  },
+  {
+    "id": 44,
+    "sisi": "B",
+    "kategori": "PEKERJA",
+    "material": "Seragam Pekerja",
+    "deskripsi": "Pekerja mennggunakan penutup kepala/rambut (cap/topi khusus untuk di dalam dapur),masker,sarung tangan/penjepit, clemek plastik & tersimpan di tempat yang bersih & rapi.",
+    "point": 25.0
+  },
+  {
+    "id": 45,
+    "sisi": "B",
+    "kategori": "PEKERJA",
+    "material": "Surat izin dari dinas Kesehatan",
+    "deskripsi": "Mempunyai Surat Izin dari Dinas Kesehatan atas nama Catering sendiri, antara lain :",
+    "point": 20.0
+  },
+  {
+    "id": 46,
+    "sisi": "B",
+    "kategori": "PEKERJA",
+    "material": "Uji lab higenitas",
+    "deskripsi": "Mempunyai hasil uji lab dari Dinas Kesehatan yang menyatakan makanan memenuhi batas syarat Kepmenkes",
+    "point": 25.0
+  },
+  {
+    "id": 47,
+    "sisi": "B",
+    "kategori": "HIGENITAS",
+    "material": "Water Heater",
+    "deskripsi": "Terdapat water heater untuk mencuci peralatan memasak.",
+    "point": 30.0
+  },
+  {
+    "id": 48,
+    "sisi": "B",
+    "kategori": "HIGENITAS",
+    "material": "Meja Stainless Steel",
+    "deskripsi": "Menggunakan meja stainless steel untuk penyajian makanan.",
+    "point": 30.0
+  },
+  {
+    "id": 49,
+    "sisi": "B",
+    "kategori": "HIGENITAS",
+    "material": "Penyajian",
+    "deskripsi": "Area penyajian terpisah dengan dapur (terdapat sekat antara area penyajian dan dapur).",
+    "point": 30.0
+  },
+  {
+    "id": 50,
+    "sisi": "B",
+    "kategori": "HIGENITAS",
+    "material": "Penyajian",
+    "deskripsi": "Area penyajian harus tertutup dan terdapat tirai untuk menghalangi lalat dan teb masuk",
+    "point": 30.0
+  },
+  {
+    "id": 51,
+    "sisi": "B",
+    "kategori": "HIGENITAS",
+    "material": "Penyajian",
+    "deskripsi": "Pada area penyajian terdapat blower/ AC/ jendela kasa (tidak menggunakan kipas angin).",
+    "point": 30.0
+  },
+  {
+    "id": 52,
+    "sisi": "B",
+    "kategori": "HIGENITAS",
+    "material": "Penyajian",
+    "deskripsi": "Terdapat wastafel di area penyajian.",
+    "point": 30.0
+  },
+  {
+    "id": 53,
+    "sisi": "B",
+    "kategori": "HIGENITAS",
+    "material": "Penyajian",
+    "deskripsi": "Saat penyajian kondisi pada bagian bawah rantang bersih, tidak berminyak, & tidak berbau (sampling 5 rantang)",
+    "point": 30.0
+  },
+  {
+    "id": 54,
+    "sisi": "B",
+    "kategori": "HIGENITAS",
+    "material": "Penyajian",
+    "deskripsi": "Sebelum penyajian, meja dibersihkan dan diusap menggunakan alkohol 70% dan tissue",
+    "point": 30.0
+  }
+]
