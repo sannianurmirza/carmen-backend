@@ -10,6 +10,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class UserController extends Controller
@@ -126,16 +127,61 @@ class UserController extends Controller
 
     /**
      * PUT /users/{id}
-     * Perbarui data pengguna.
+     * Perbarui data pengguna (Admin bisa mengedit semua user; non-admin hanya bisa mengedit akunnya sendiri).
      */
     public function update(Request $request, int $id): JsonResponse
     {
-        $user = User::findOrFail($id);
+        $currentUser = $request->user() ?? $this->authService->resolveUserFromRequest($request);
+        if (!$currentUser) {
+            return response()->json(['detail' => 'Sesi autentikasi tidak ditemukan.'], 401);
+        }
 
-        $validator = Validator::make($request->all(), [
+        $isAdmin = $currentUser->role === 'admin';
+        $isSelf = (int)$currentUser->id === (int)$id;
+
+        // Hanya admin yang bisa mengedit akun orang lain. User biasa hanya bisa mengedit akunnya sendiri.
+        if (!$isAdmin && !$isSelf) {
+            return response()->json([
+                'detail' => 'Akses ditolak. Anda hanya berhak mengubah profil Anda sendiri.',
+                'message' => 'Akses ditolak. Anda hanya berhak mengubah profil Anda sendiri.',
+            ], 403);
+        }
+
+        $target = User::findOrFail($id);
+
+        $rules = [
             'nama' => ['sometimes', 'required', 'string', 'max:100'],
-            'email' => ['nullable', 'email', 'max:100', "unique:user,email,{$id}"],
-            'role' => ['sometimes', 'required', 'in:admin,staff,approver,user'],
+            'username' => [
+                'sometimes',
+                'required',
+                'string',
+                'min:3',
+                'max:50',
+                'regex:/^[a-zA-Z0-9_.-]+$/',
+                Rule::unique('user', 'username')->ignore($id),
+            ],
+            'email' => [
+                'nullable',
+                'email',
+                'max:100',
+                Rule::unique('user', 'email')->ignore($id),
+            ],
+        ];
+
+        // Role hanya boleh diubah jika pemanggil adalah Administrator
+        if ($isAdmin) {
+            $rules['role'] = ['sometimes', 'required', 'in:admin,staff,approver,user'];
+        }
+
+        $validator = Validator::make($request->all(), $rules, [
+            'nama.required' => 'Nama pengguna wajib diisi.',
+            'username.required' => 'Username wajib diisi.',
+            'username.min' => 'Username minimal 3 karakter.',
+            'username.regex' => 'Username hanya boleh berisi huruf, angka, underscore, minus, atau titik.',
+            'username.unique' => 'Username sudah digunakan oleh akun lain.',
+            'email.email' => 'Format email tidak valid.',
+            'email.unique' => 'Email sudah digunakan oleh akun lain.',
+            'role.in' => 'Role pengguna tidak valid.',
         ]);
 
         if ($validator->fails()) {
@@ -147,24 +193,88 @@ class UserController extends Controller
         }
 
         if ($request->has('nama')) {
-            $user->nama = trim((string)$request->input('nama'));
+            $target->nama = trim((string)$request->input('nama'));
+        }
+        if ($request->has('username')) {
+            $target->username = trim((string)$request->input('username'));
         }
         if ($request->has('email')) {
             $email = trim((string)$request->input('email', ''));
-            $user->email = !empty($email) ? $email : null;
-        }
-        if ($request->has('role')) {
-            $user->role = (string)$request->input('role');
+            $target->email = !empty($email) ? $email : null;
         }
 
-        $user->save();
+        // Hanya Administrator yang dapat mengubah role akun (dan admin tidak boleh mendemosi akunnya sendiri)
+        if ($isAdmin && $request->has('role')) {
+            $newRole = (string)$request->input('role');
+            if ($isSelf && $newRole !== 'admin') {
+                return response()->json([
+                    'detail' => 'Anda tidak dapat mengubah role Administrator pada akun Anda sendiri.',
+                    'message' => 'Anda tidak dapat mengubah role Administrator pada akun Anda sendiri.',
+                ], 422);
+            }
+            $target->role = $newRole;
+        }
 
-        return response()->json($this->formatUser($user));
+        $target->save();
+
+        return response()->json($this->formatUser($target));
+    }
+
+    /**
+     * PUT /users/me OR /auth/me
+     * Perbarui data profil akun sendiri (tersedia untuk semua role pengguna).
+     */
+    public function updateMe(Request $request): JsonResponse
+    {
+        $currentUser = $request->user() ?? $this->authService->resolveUserFromRequest($request);
+        if (!$currentUser) {
+            return response()->json(['detail' => 'Sesi autentikasi tidak ditemukan.'], 401);
+        }
+
+        return $this->update($request, (int)$currentUser->id);
+    }
+
+    /**
+     * DELETE /users/{id}
+     * Hapus Pengguna (Khusus Administrator).
+     */
+    public function destroy(Request $request, int $id): JsonResponse
+    {
+        $currentUser = $request->user() ?? $this->authService->resolveUserFromRequest($request);
+        if (!$currentUser || $currentUser->role !== 'admin') {
+            return response()->json([
+                'detail' => 'Hanya Administrator yang berhak menghapus pengguna.',
+                'message' => 'Hanya Administrator yang berhak menghapus pengguna.',
+            ], 403);
+        }
+
+        $target = User::findOrFail($id);
+
+        // Administrator tidak boleh menghapus akunnya sendiri
+        if ((int)$currentUser->id === (int)$target->id) {
+            return response()->json([
+                'detail' => 'Anda tidak dapat menghapus akun Anda sendiri.',
+                'message' => 'Anda tidak dapat menghapus akun Anda sendiri.',
+            ], 422);
+        }
+
+        $username = $target->username;
+
+        // Cabut dan bersihkan seluruh sesi pengguna
+        UserSession::where('user_id', $target->id)->delete();
+
+        // Hapus akun pengguna
+        $target->delete();
+
+        return response()->json([
+            'message' => "Pengguna '{$username}' berhasil dihapus.",
+            'deleted_user_id' => $id,
+        ]);
     }
 
     /**
      * PATCH|PUT /users/{id}/status
-     * Nonaktifkan atau Aktifkan Akun Pengguna.
+     * Nonaktifkan atau Aktifkan Akun Pengguna (Khusus Administrator).
      */
     public function updateStatus(Request $request, int $id): JsonResponse
     {

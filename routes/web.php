@@ -222,6 +222,11 @@ $registerCarmenRoutes = function () {
             Route::post('/users/{id}/signature/reset', [SignatureController::class, 'resetUserSignature'])->whereNumber('id');
             Route::post('/settings/users/{id}/signature/reset', [SignatureController::class, 'resetUserSignature'])->whereNumber('id');
 
+            // Profile Self-Update (Any authenticated user can update their own profile)
+            Route::put('/users/me', [UserController::class, 'updateMe']);
+            Route::put('/auth/me', [UserController::class, 'updateMe']);
+            Route::put('/users/{id}', [UserController::class, 'update'])->whereNumber('id');
+
             // Stage 5: Keterlambatan Mutations
             Route::post('/keterlambatan', [KeterlambatanController::class, 'store']);
             Route::put('/keterlambatan/{id}', [KeterlambatanController::class, 'update'])->whereNumber('id');
@@ -306,6 +311,7 @@ $registerCarmenRoutes = function () {
             Route::put('/users/{id}/status', [UserController::class, 'updateStatus'])->whereNumber('id')->middleware('carmen.csrf');
             Route::put('/settings/users/{id}/password', [UserController::class, 'resetPassword'])->whereNumber('id')->middleware('carmen.csrf');
             Route::put('/users/{id}/password', [UserController::class, 'resetPassword'])->whereNumber('id')->middleware('carmen.csrf');
+            Route::delete('/users/{id}', [UserController::class, 'destroy'])->whereNumber('id')->middleware('carmen.csrf');
 
             Route::delete('/catering/{id}', [CateringController::class, 'destroy'])->whereNumber('id')->middleware('carmen.csrf');
             Route::post('/reward-punishment/periods/{id}/finalize', [RewardPunishmentController::class, 'finalize'])->whereNumber('id')->middleware('carmen.csrf');
