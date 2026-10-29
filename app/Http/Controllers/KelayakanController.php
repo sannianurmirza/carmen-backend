@@ -165,6 +165,7 @@ class KelayakanController extends Controller
         }
 
         $items = $records->map(function ($it) {
+            $calc = KelayakanService::hitungKelayakan($it);
             return [
                 'id' => $it->id,
                 'catering_id' => $it->catering_id,
@@ -189,6 +190,8 @@ class KelayakanController extends Controller
                 'kerupuk_kelayakan' => $it->kerupuk_kelayakan,
                 'kerupuk_rasa' => $it->kerupuk_rasa,
                 'kondisi_rantang' => $it->kondisi_rantang,
+                'total_nilai' => $calc['total_nilai'],
+                'score_presentase' => $calc['score_presentase'],
                 'catatan' => $it->catatan,
                 'rata_rata_nilai' => $it->rata_rata_nilai,
                 'status' => $it->status ?? 'final',

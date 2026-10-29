@@ -125,21 +125,31 @@ def generate_kelayakan_excel_bytes(
         cat_name = caterings_map.get(it.catering_id, f"Catering #{it.catering_id}")
         tgl_str = it.tanggal.strftime("%d/%m/%Y") if hasattr(it.tanggal, "strftime") else str(it.tanggal)
 
-        # Nilai kelayakan (1 = OK, 0 = Not OK)
-        nasi = getattr(it, "nasi_kelayakan", 1)
-        lauk = getattr(it, "lauk_kelayakan", 1)
-        sayur = getattr(it, "sayur_kelayakan", 1)
-        sambal = getattr(it, "sambal_kelayakan", 1)
-        kerupuk = getattr(it, "kerupuk_kelayakan", 1)
-        buah = getattr(it, "buah_kelayakan", 1)
+        # Nilai kelayakan (skor bintang 1 - 5)
+        nasi = getattr(it, "nasi_kelayakan", 5)
+        lauk = getattr(it, "lauk_kelayakan", 5)
+        sayur = getattr(it, "sayur_kelayakan", 5)
+        sambal = getattr(it, "sambal_kelayakan", 5)
+        kerupuk = getattr(it, "kerupuk_kelayakan", 5)
+        buah = getattr(it, "buah_kelayakan", 5)
 
         total_nilai = getattr(it, "total_nilai", None)
         if total_nilai is None:
-            total_nilai = nasi + lauk + sayur + sambal + kerupuk + buah
+            all_13 = [
+                getattr(it, "nasi_kelayakan", 0), getattr(it, "nasi_rasa", 0),
+                getattr(it, "lauk_kelayakan", 0), getattr(it, "lauk_rasa", 0),
+                getattr(it, "sayur_kelayakan", 0), getattr(it, "sayur_rasa", 0),
+                getattr(it, "sambal_kelayakan", 0), getattr(it, "sambal_rasa", 0),
+                getattr(it, "kerupuk_kelayakan", 0), getattr(it, "kerupuk_rasa", 0),
+                getattr(it, "buah_kelayakan", 0), getattr(it, "buah_rasa", 0),
+                getattr(it, "kondisi_rantang", 0),
+            ]
+            sum_13 = sum(all_13)
+            total_nilai = sum_13 if sum_13 > 0 else (nasi + lauk + sayur + sambal + kerupuk + buah)
 
         pct = getattr(it, "score_presentase", None)
         if pct is None:
-            pct = (total_nilai / 6.0) * 100.0
+            pct = (total_nilai / 65.0) * 100.0
 
         total_score_sum += total_nilai
         total_pct_sum += pct
@@ -157,22 +167,22 @@ def generate_kelayakan_excel_bytes(
         ws[f"D{curr_row}"] = it.shift or "Pagi"
         ws[f"D{curr_row}"].alignment = align_center
         
-        ws[f"E{curr_row}"] = "OK" if nasi else "NO"
+        ws[f"E{curr_row}"] = nasi
         ws[f"E{curr_row}"].alignment = align_center
         
-        ws[f"F{curr_row}"] = "OK" if lauk else "NO"
+        ws[f"F{curr_row}"] = lauk
         ws[f"F{curr_row}"].alignment = align_center
         
-        ws[f"G{curr_row}"] = "OK" if sayur else "NO"
+        ws[f"G{curr_row}"] = sayur
         ws[f"G{curr_row}"].alignment = align_center
         
-        ws[f"H{curr_row}"] = "OK" if sambal else "NO"
+        ws[f"H{curr_row}"] = sambal
         ws[f"H{curr_row}"].alignment = align_center
         
-        ws[f"I{curr_row}"] = "OK" if kerupuk else "NO"
+        ws[f"I{curr_row}"] = kerupuk
         ws[f"I{curr_row}"].alignment = align_center
         
-        ws[f"J{curr_row}"] = "OK" if buah else "NO"
+        ws[f"J{curr_row}"] = buah
         ws[f"J{curr_row}"].alignment = align_center
         
         ws[f"K{curr_row}"] = round(total_nilai, 1)

@@ -709,7 +709,7 @@ def agregasi_kelayakan(
             e.buah_kelayakan + e.buah_rasa +
             e.kondisi_rantang
         )
-        scores.append(round(tot / 39.0 * 100.0, 2))
+        scores.append(round(tot / 65.0 * 100.0, 2))
 
     avg_persen = validate_backend_percentage(round(sum(scores) / len(scores), 2))
     score = score_performance_kelayakan(avg_persen)

@@ -291,7 +291,7 @@ class PunishmentMonthlyService
                 $e->buah_kelayakan + $e->buah_rasa +
                 $e->kondisi_rantang
             );
-            $scores[] = round(($tot / 39.0) * 100.0, 2);
+            $scores[] = round(($tot / 65.0) * 100.0, 2);
         }
 
         $avgPersen = round(array_sum($scores) / count($scores), 2);

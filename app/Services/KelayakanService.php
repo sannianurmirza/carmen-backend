@@ -26,7 +26,7 @@ class KelayakanService
             (int) $entry->kondisi_rantang,
         ];
         $totalNilai = array_sum($nilai);
-        $scorePresentase = round($totalNilai / 39 * 100, 2);
+        $scorePresentase = round($totalNilai / 65 * 100, 2);
 
         return [
             'total_nilai' => $totalNilai,
@@ -100,8 +100,8 @@ class KelayakanService
                 throw new HttpException(400, "Field {$field} wajib diisi dengan angka");
             }
             $val = (int) $data[$field];
-            if ($val < 1 || $val > 3) {
-                throw new HttpException(400, "Nilai {$field} harus antara 1 dan 3");
+            if ($val < 1 || $val > 5) {
+                throw new HttpException(400, "Nilai {$field} harus antara 1 dan 5");
             }
             $prepared[$field] = $val;
         }
