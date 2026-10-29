@@ -219,8 +219,15 @@ $registerCarmenRoutes = function () {
             Route::post('/me/signature-qr/replace', [SignatureController::class, 'replaceMySignature']);
             Route::post('/settings/me/signature/replace', [SignatureController::class, 'replaceMySignature']);
 
+            Route::post('/users/me/signature/upload', [SignatureController::class, 'uploadMySignature']);
+            Route::post('/me/signature-qr/upload', [SignatureController::class, 'uploadMySignature']);
+            Route::post('/settings/me/signature/upload', [SignatureController::class, 'uploadMySignature']);
+
             Route::post('/users/{id}/signature/reset', [SignatureController::class, 'resetUserSignature'])->whereNumber('id');
             Route::post('/settings/users/{id}/signature/reset', [SignatureController::class, 'resetUserSignature'])->whereNumber('id');
+
+            Route::post('/users/{id}/signature/upload', [SignatureController::class, 'uploadUserSignature'])->whereNumber('id');
+            Route::post('/settings/users/{id}/signature/upload', [SignatureController::class, 'uploadUserSignature'])->whereNumber('id');
 
             // Profile Self-Update (Any authenticated user can update their own profile)
             Route::put('/users/me', [UserController::class, 'updateMe']);

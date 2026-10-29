@@ -311,6 +311,106 @@ class SignatureService
     }
 
     /**
+     * Uploads a custom QR/TTD image for a user.
+     * Can be called by the user themselves (in Account Settings) or by Admin (in User Management).
+     */
+    public function uploadUserSignatureQR(User $targetUser, $uploadedFile, User $operatorUser, ?string $note = null): UserSignatureQR
+    {
+        if (!$targetUser || !$targetUser->is_active) {
+            throw new HttpException(404, 'Pengguna tidak aktif atau tidak ditemukan.');
+        }
+
+        if ($operatorUser->role !== 'admin' && (int) $operatorUser->id !== (int) $targetUser->id) {
+            throw new HttpException(403, 'Anda tidak memiliki hak akses untuk mengunggah tanda tangan pengguna ini.');
+        }
+
+        if (!$uploadedFile) {
+            throw new HttpException(400, 'File gambar QR/TTD wajib disertakan.');
+        }
+
+        $allowedExts = ['png', 'jpg', 'jpeg', 'webp'];
+        $origName = method_exists($uploadedFile, 'getClientOriginalName') ? $uploadedFile->getClientOriginalName() : 'image.png';
+        $ext = strtolower(
+            method_exists($uploadedFile, 'getClientOriginalExtension') && $uploadedFile->getClientOriginalExtension()
+                ? $uploadedFile->getClientOriginalExtension()
+                : pathinfo($origName, PATHINFO_EXTENSION)
+        );
+
+        if (!in_array($ext, $allowedExts, true)) {
+            throw new HttpException(400, 'Format file tidak didukung. Harap unggah gambar dengan format PNG, JPG, JPEG, atau WEBP.');
+        }
+
+        $fileSize = method_exists($uploadedFile, 'getSize') ? $uploadedFile->getSize() : 0;
+        if ($fileSize > 5 * 1024 * 1024) {
+            throw new HttpException(400, 'Ukuran file gambar maksimal 5 MB.');
+        }
+
+        $realPath = method_exists($uploadedFile, 'getRealPath') ? $uploadedFile->getRealPath() : null;
+        if (!$realPath || !file_exists($realPath)) {
+            throw new HttpException(400, 'File gambar tidak ditemukan.');
+        }
+
+        $fileBytes = file_get_contents($realPath);
+        if (!$fileBytes || strlen($fileBytes) < 8) {
+            throw new HttpException(400, 'File gambar kosong atau rusak.');
+        }
+
+        $gdImg = @imagecreatefromstring($fileBytes);
+        if (!$gdImg) {
+            throw new HttpException(400, 'File gambar tidak dapat diproses. Pastikan file adalah gambar PNG, JPG, atau WEBP yang valid.');
+        }
+
+        if (!is_dir($this->signatureUploadsDir)) {
+            @mkdir($this->signatureUploadsDir, 0755, true);
+        }
+
+        $fname = Str::uuid()->getHex() . '_qr.png';
+        $targetFilePath = $this->signatureUploadsDir . '/' . $fname;
+
+        // Save as clean PNG with alpha channel preserved
+        imagealphablending($gdImg, false);
+        imagesavealpha($gdImg, true);
+        $saved = imagepng($gdImg, $targetFilePath, 6);
+        imagedestroy($gdImg);
+
+        if (!$saved || !file_exists($targetFilePath)) {
+            throw new HttpException(500, 'Gagal menyimpan file gambar QR/TTD di server.');
+        }
+
+        $now = Carbon::now('UTC');
+        $nowStr = $now->format('d/m/Y H:i:s UTC');
+        $customNote = ($note && trim($note) !== '') ? ' | Catatan: ' . trim($note) : '';
+
+        // Deactivate older active signatures
+        $activeSigs = UserSignatureQR::where('user_id', $targetUser->id)
+            ->where('is_active', true)
+            ->get();
+
+        $oldSigIds = [];
+        foreach ($activeSigs as $s) {
+            $oldSigIds[] = $s->id;
+            $s->is_active = false;
+            $s->revoked_at = $now;
+            $s->note = "Diganti dengan upload QR/TTD baru pada {$nowStr}";
+            $s->updated_at = $now;
+            $s->save();
+        }
+
+        $newToken = Str::random(43);
+
+        return UserSignatureQR::create([
+            'user_id' => $targetUser->id,
+            'signature_token' => $newToken,
+            'qr_image_path' => "signatures/{$fname}",
+            'is_active' => true,
+            'created_at' => $now,
+            'updated_at' => $now,
+            'regenerated_at' => $now,
+            'note' => "EVENT:SIGNATURE_QR_UPLOADED | PrevSigIDs:" . (implode(',', $oldSigIds) ?: 'None') . " | ActorID:{$operatorUser->id} | UploadedBy:{$operatorUser->nama} | CreatedAt:{$nowStr}{$customNote}",
+        ]);
+    }
+
+    /**
      * Resolves signature token details for public verification.
      */
     public function getSignatureTokenDetails(string $token): array

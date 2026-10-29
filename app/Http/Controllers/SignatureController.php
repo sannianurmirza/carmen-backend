@@ -204,4 +204,75 @@ class SignatureController extends Controller
             'signature' => $this->signatureService->getUserSignatureStatus($currentUser),
         ]);
     }
+
+    /**
+     * POST /users/me/signature/upload (Self-Service)
+     */
+    public function uploadMySignature(Request $request): JsonResponse
+    {
+        $currentUser = $request->user() ?? $this->authService->resolveUserFromRequest($request);
+        if (!$currentUser) {
+            throw new HttpException(401, 'Silakan login terlebih dahulu.');
+        }
+
+        if (!$request->hasFile('file') && !$request->hasFile('image')) {
+            throw new HttpException(400, 'File gambar QR/TTD wajib diunggah.');
+        }
+
+        $file = $request->file('file') ?: $request->file('image');
+        $note = $request->input('note');
+
+        $this->signatureService->uploadUserSignatureQR(
+            targetUser: $currentUser,
+            uploadedFile: $file,
+            operatorUser: $currentUser,
+            note: $note
+        );
+
+        return response()->json([
+            'success' => true,
+            'message' => 'QR/TTD berhasil diunggah dan diaktifkan.',
+            'signature' => $this->signatureService->getUserSignatureStatus($currentUser),
+        ]);
+    }
+
+    /**
+     * POST /users/{id}/signature/upload (Admin or Self)
+     */
+    public function uploadUserSignature(Request $request, int $user_id): JsonResponse
+    {
+        $currentUser = $request->user() ?? $this->authService->resolveUserFromRequest($request);
+        if (!$currentUser) {
+            throw new HttpException(401, 'Silakan login terlebih dahulu.');
+        }
+
+        if ($currentUser->role !== 'admin' && (int) $currentUser->id !== $user_id) {
+            throw new HttpException(403, 'Akses ditolak. Hanya Administrator atau pemilik akun yang dapat mengunggah tanda tangan.');
+        }
+
+        $target = User::find($user_id);
+        if (!$target) {
+            throw new HttpException(404, 'Pengguna tidak ditemukan.');
+        }
+
+        if (!$request->hasFile('file') && !$request->hasFile('image')) {
+            throw new HttpException(400, 'File gambar QR/TTD wajib diunggah.');
+        }
+
+        $file = $request->file('file') ?: $request->file('image');
+        $note = $request->input('note');
+
+        $this->signatureService->uploadUserSignatureQR(
+            targetUser: $target,
+            uploadedFile: $file,
+            operatorUser: $currentUser,
+            note: $note
+        );
+
+        return response()->json([
+            'success' => true,
+            'message' => "QR/TTD untuk pengguna '{$target->nama}' berhasil diunggah dan diaktifkan.",
+            'signature' => $this->signatureService->getUserSignatureStatus($target),
+        ]);
+    }
 }
