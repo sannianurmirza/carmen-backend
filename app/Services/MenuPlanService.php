@@ -552,17 +552,19 @@ class MenuPlanService
             throw new HttpException(404, 'Rencana menu tidak ditemukan.');
         }
 
-        if ($plan->status !== 'DRAFT') {
+        // Admin can delete any plan; staff can delete DRAFT or REVISION_REQUIRED plans
+        if ($user->role !== 'admin' && !in_array($plan->status, ['DRAFT', 'REVISION_REQUIRED'], true)) {
             throw new HttpException(
                 400,
-                "Rencana menu dengan status '{$plan->status}' terkunci dan tidak dapat dihapus."
+                "Rencana menu dengan status '{$plan->status}' sedang dalam proses atau aktif dan tidak dapat dihapus."
             );
         }
 
         MonthlyMenuItem::where('plan_id', $plan->id)->delete();
         $plan->delete();
 
-        return ['success' => true, 'message' => "Rencana menu ID {$planId} berhasil dihapus."];
+        $cName = $plan->catering ? $plan->catering->nama : "Katering ID {$plan->catering_id}";
+        return ['success' => true, 'message' => "Rencana menu {$cName} ({$plan->effective_menu_period} v{$plan->version}) berhasil dihapus."];
     }
 
     public function formatPlanResponse(MonthlyMenuPlan $p): array

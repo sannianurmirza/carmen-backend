@@ -127,9 +127,16 @@ class MenuPlanController extends Controller
             'requester_name' => $requesterName,
         ];
 
-        $excelBytes = \App\Services\ExcelExportService::generate('menu_plan', $payload);
-
-        return \App\Services\ExcelExportService::downloadResponse($excelBytes, $filename);
+        try {
+            $excelBytes = \App\Services\ExcelExportService::generate('menu_plan', $payload);
+            return \App\Services\ExcelExportService::downloadResponse($excelBytes, $filename);
+        } catch (\Throwable $e) {
+            \Log::warning("MenuPlanController backend excel generator unavailable: {$e->getMessage()}");
+            return response()->json([
+                'detail' => 'Server Excel generator tidak tersedia. Menggunakan generator Excel client-side.',
+                'fallback' => true,
+            ], 503);
+        }
     }
 
     public function destroy(Request $request, $id): JsonResponse
