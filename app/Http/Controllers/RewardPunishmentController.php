@@ -217,8 +217,22 @@ class RewardPunishmentController extends Controller
             return response()->json(['detail' => 'Periode evaluasi tidak ditemukan.'], 404);
         }
 
-        if (strtoupper($period->status) === 'FINAL') {
+        $isAdmin = strtolower($user?->role ?? '') === 'admin';
+        $isFinal = strtoupper($period->status) === 'FINAL';
+
+        if ($isFinal && !$isAdmin) {
             return response()->json(['detail' => 'Periode telah berstatus FINAL dan tidak dapat diubah kembali.'], 409);
+        }
+
+        if ($request->has('nama_periode')) {
+            $newNama = trim((string)$request->input('nama_periode'));
+            if ($newNama !== '') {
+                $dup = RewardPunishmentPeriod::where('nama_periode', $newNama)->where('id', '!=', $periodId)->first();
+                if ($dup) {
+                    return response()->json(['detail' => "Periode dengan nama '{$newNama}' sudah terdaftar."], 409);
+                }
+                $period->nama_periode = $newNama;
+            }
         }
 
         $dateChanged = false;
@@ -247,13 +261,48 @@ class RewardPunishmentController extends Controller
         $period->updated_at = Carbon::now();
         $period->save();
 
-        if ($dateChanged) {
+        if ($dateChanged && !$isFinal) {
             $this->rpService->syncOperationalData($periodId, preserveManualInputs: true);
         }
 
         return response()->json([
             'success' => true,
             'message' => 'Periode evaluasi berhasil diperbarui.',
+        ]);
+    }
+
+    /**
+     * DELETE /reward-punishment/periods/{period_id}
+     */
+    public function deletePeriod(Request $request, int $periodId): JsonResponse
+    {
+        $user = $this->resolveUser($request);
+        if ($user && !in_array(strtolower($user->role), ['admin', 'staff'], true)) {
+            return response()->json(['detail' => 'Akses ditolak.'], 403);
+        }
+
+        $period = RewardPunishmentPeriod::find($periodId);
+        if (!$period) {
+            return response()->json(['detail' => 'Periode evaluasi tidak ditemukan.'], 404);
+        }
+
+        $isAdmin = strtolower($user?->role ?? '') === 'admin';
+        if (strtoupper($period->status) === 'FINAL' && !$isAdmin) {
+            return response()->json([
+                'detail' => 'Periode telah berstatus FINAL. Hanya Administrator yang dapat menghapus periode ini.'
+            ], 403);
+        }
+
+        RewardPunishmentCatering::where('period_id', $periodId)->delete();
+        RewardPunishmentShift::where('period_id', $periodId)->delete();
+
+        $nama = $period->nama_periode;
+        $period->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => "Periode evaluasi '{$nama}' berhasil dihapus.",
+            'deleted_id' => $periodId,
         ]);
     }
 

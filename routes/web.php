@@ -267,6 +267,7 @@ $registerCarmenRoutes = function () {
             Route::middleware('role:admin,staff')->group(function () {
                 Route::post('/reward-punishment/periods', [RewardPunishmentController::class, 'createPeriod']);
                 Route::put('/reward-punishment/periods/{period_id}', [RewardPunishmentController::class, 'updatePeriod'])->whereNumber('period_id');
+                Route::delete('/reward-punishment/periods/{period_id}', [RewardPunishmentController::class, 'deletePeriod'])->whereNumber('period_id');
                 Route::post('/reward-punishment/periods/{period_id}/sync', [RewardPunishmentController::class, 'syncPeriod'])->whereNumber('period_id');
                 Route::put('/reward-punishment/periods/{period_id}/items/{item_id}', [RewardPunishmentController::class, 'updateItem'])->whereNumber('period_id')->whereNumber('item_id');
                 Route::put('/reward-punishment/periods/{period_id}/shifts/{shift_id}', [RewardPunishmentController::class, 'updateShift'])->whereNumber('period_id')->whereNumber('shift_id');
