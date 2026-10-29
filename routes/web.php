@@ -11,6 +11,7 @@ use App\Http\Controllers\KebersihanController;
 use App\Http\Controllers\KelayakanController;
 use App\Http\Controllers\KeterlambatanController;
 use App\Http\Controllers\KomplainController;
+use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\MenuPlanController;
 use App\Http\Controllers\MinusController;
 use App\Http\Controllers\OperationalLockController;
@@ -160,6 +161,14 @@ $registerCarmenRoutes = function () {
         Route::get('/reward-punishment/periods', [RewardPunishmentController::class, 'listPeriods']);
         Route::get('/reward-punishment/periods/{period_id}', [RewardPunishmentController::class, 'getPeriodDetail'])->whereNumber('period_id');
         Route::get('/reward-punishment/periods/{period_id}/export-excel', [RewardPunishmentController::class, 'exportExcel'])->whereNumber('period_id');
+
+        // ---------- Executive Management Analytics Read Endpoints ----------
+        Route::get('/management/summary', [ManagementController::class, 'summary']);
+        Route::get('/management/kalori', [ManagementController::class, 'kalori']);
+        Route::get('/management/kalori/daily', [ManagementController::class, 'kaloriDaily']);
+        Route::get('/management/punishment', [ManagementController::class, 'punishment']);
+        Route::get('/management/performance', [ManagementController::class, 'performance']);
+        Route::get('/management/reward-punishment', [ManagementController::class, 'rewardPunishment']);
 
         // ---------- Master Data: Scoped Settings Read (Admin & Staff) ----------
         Route::middleware('role:admin,staff')->group(function () {
