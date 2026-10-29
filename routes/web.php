@@ -21,6 +21,7 @@ use App\Http\Controllers\RewardPunishmentController;
 use App\Http\Controllers\ScoreRuleController;
 use App\Http\Controllers\SendReportController;
 use App\Http\Controllers\SignatureController;
+use App\Http\Controllers\SmtpController;
 use App\Http\Controllers\StandarBeratController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -175,6 +176,8 @@ $registerCarmenRoutes = function () {
             Route::get('/settings/calorie-standard', [BahanStandarController::class, 'getCalorieStandard']);
             Route::get('/settings/calorie-master', [BahanStandarController::class, 'getCalorieMaster']);
             Route::get('/settings/standar-berat', [StandarBeratController::class, 'getStandarBeratSettings']);
+            Route::get('/settings/smtp', [SmtpController::class, 'show']);
+            Route::get('/smtp', [SmtpController::class, 'show']);
         });
 
         // ---------- Mutating Operations (CSRF protected) ----------
@@ -314,6 +317,12 @@ $registerCarmenRoutes = function () {
 
                 // Score Rule mutations
                 Route::put('/score-rules/{id}', [ScoreRuleController::class, 'update'])->whereNumber('id');
+
+                // SMTP Settings mutations
+                Route::put('/settings/smtp', [SmtpController::class, 'update']);
+                Route::put('/smtp', [SmtpController::class, 'update']);
+                Route::post('/settings/smtp/test', [SmtpController::class, 'test']);
+                Route::post('/smtp/test', [SmtpController::class, 'test']);
             });
         });
 
