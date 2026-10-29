@@ -101,6 +101,7 @@ $registerCarmenRoutes = function () {
         Route::get('/approvals/{id}', [ApprovalController::class, 'show'])->whereNumber('id');
         Route::get('/approvals/{id}/file', [ApprovalController::class, 'downloadFile'])->whereNumber('id');
 
+        Route::get('/send-report/config', [SendReportController::class, 'config']);
         Route::get('/send-report/history', [SendReportController::class, 'history']);
         Route::get('/send-report/{id}/file', [SendReportController::class, 'downloadFile'])->whereNumber('id');
 

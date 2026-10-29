@@ -6,9 +6,11 @@ use App\Models\ApprovalRequest;
 use App\Models\ApprovalRequestApprover;
 use App\Models\ApprovalRequestRecipient;
 use App\Models\ApprovalRequestRevision;
+use App\Models\SMTPConfig;
 use App\Models\User;
 use App\Services\ApprovalService;
 use App\Services\CarmenAuthService;
+use App\Services\EmailService;
 use App\Services\SignatureService;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
@@ -22,7 +24,8 @@ class SendReportController extends Controller
     public function __construct(
         protected CarmenAuthService $authService,
         protected ApprovalService $approvalService,
-        protected SignatureService $signatureService
+        protected SignatureService $signatureService,
+        protected EmailService $emailService
     ) {}
 
     /**
@@ -99,7 +102,21 @@ class SendReportController extends Controller
         $primaryFile = $processedFiles[0];
         $now = Carbon::now('UTC');
         $sentAt = $now->toISOString();
-        $sender = 'PT JAI Catering Management <catering-ir@jai.co.id>';
+
+        $smtpConfig = SMTPConfig::first();
+        $sender = ($smtpConfig && !empty($smtpConfig->email_sender))
+            ? (($smtpConfig->sender_name ?: 'PT JAI Catering Management') . " <{$smtpConfig->email_sender}>")
+            : 'PT JAI Catering Management <catering-ir@jai.co.id>';
+
+        $attachmentFiles = [];
+        foreach ($processedFiles as $pf) {
+            $absFilePath = $this->signatureService->getApprovalUploadsDir() . DIRECTORY_SEPARATOR . basename($pf['stored_rel_path']);
+            $attachmentFiles[] = [
+                'path' => $absFilePath,
+                'name' => $pf['filename'],
+                'mime' => $pf['content_type'],
+            ];
+        }
 
         // ==============================================================
         // MODE 1: REPORT_ONLY
@@ -216,11 +233,24 @@ class SendReportController extends Controller
                 'email' => $rec->email,
             ], $storedRecipientsList);
 
+            $emailResult = $this->emailService->sendReportOnlyEmail(
+                approvalRequest: $reqRecord,
+                recipients: $validatedRecipients,
+                filePaths: $attachmentFiles,
+                subject: $cleanSubject,
+                notes: $cleanNotes,
+                senderUser: $currentUser
+            );
+
+            $emailSent = (bool) ($emailResult['success'] ?? false);
+            $warning = $emailSent ? null : ($emailResult['message'] ?? 'Pengiriman email via SMTP gagal.');
+            $msg = $emailSent ? ($emailResult['message'] ?? 'Laporan berhasil dikirim.') : 'Laporan berhasil disimpan di sistem.';
+
             return response()->json([
                 'success' => true,
-                'message' => 'Laporan berhasil dikirim.',
-                'email_sent' => false,
-                'warning' => null,
+                'message' => $msg,
+                'email_sent' => $emailSent,
+                'warning' => $warning,
                 'approval_id' => $reqRecord->id,
                 'report_id' => $reqRecord->id,
                 'delivery_type' => 'REPORT_ONLY',
@@ -381,15 +411,29 @@ class SendReportController extends Controller
 
         $approver1 = $createdApprovers[0];
 
-        $returnMsg = ($approversJson && trim($approversJson) !== '')
-            ? 'Permintaan approval berhasil diajukan dan dikirim ke approver tahap pertama.'
-            : 'Permintaan approval berhasil dikirim ke SPV.';
+        $emailResult = $this->emailService->sendApprovalRequestEmail(
+            approvalRequest: $reqRecord,
+            approver: $approver1,
+            filePaths: $attachmentFiles,
+            subject: $cleanSubject,
+            notes: $cleanNotes,
+            senderUser: $currentUser
+        );
+
+        $emailSent = (bool) ($emailResult['success'] ?? false);
+        $warning = $emailSent ? null : ($emailResult['message'] ?? 'Pengiriman email notifikasi via SMTP gagal.');
+
+        $returnMsg = $emailSent
+            ? ($emailResult['message'] ?? 'Permintaan approval berhasil diajukan dan dikirim ke approver tahap pertama.')
+            : (($approversJson && trim($approversJson) !== '')
+                ? 'Permintaan approval berhasil diajukan ke sistem.'
+                : 'Permintaan approval berhasil disimpan.');
 
         return response()->json([
             'success' => true,
             'message' => $returnMsg,
-            'email_sent' => true,
-            'warning' => null,
+            'email_sent' => $emailSent,
+            'warning' => $warning,
             'approval_id' => $reqRecord->id,
             'report_id' => $reqRecord->id,
             'delivery_type' => 'APPROVAL',
@@ -421,6 +465,50 @@ class SendReportController extends Controller
             ], $processedFiles),
             'notes' => $cleanNotes,
             'subject' => $cleanSubject,
+        ]);
+    }
+
+    /**
+     * GET /send-report/config:
+     * Returns sender metadata, active SMTP status, and registered approvers.
+     */
+    public function config(Request $request): JsonResponse
+    {
+        $currentUser = $request->user() ?? $this->authService->resolveUserFromRequest($request);
+        $smtpConfig = SMTPConfig::first();
+
+        $approvers = User::where('is_active', true)
+            ->where('role', 'approver')
+            ->orderBy('id', 'asc')
+            ->get(['id', 'nama', 'email', 'role']);
+
+        $firstApprover = $approvers->first();
+
+        $isConfigured = (bool) ($smtpConfig && $smtpConfig->is_active && !empty($smtpConfig->smtp_host));
+
+        return response()->json([
+            'sender_name' => $smtpConfig?->sender_name ?: 'PT JAI Catering Management',
+            'sender_email' => $smtpConfig?->email_sender ?: 'catering-noreply@company.internal',
+            'smtp_configured' => $isConfigured,
+            'smtp_host' => $smtpConfig?->smtp_host,
+            'requester' => $currentUser ? [
+                'id' => $currentUser->id,
+                'username' => $currentUser->username,
+                'nama' => $currentUser->nama,
+                'role' => $currentUser->role,
+            ] : null,
+            'approver' => $firstApprover ? [
+                'id' => $firstApprover->id,
+                'name' => $firstApprover->nama,
+                'email' => $firstApprover->email,
+                'role' => 'SPV',
+            ] : null,
+            'approvers' => $approvers->map(fn($u) => [
+                'id' => $u->id,
+                'name' => $u->nama,
+                'email' => $u->email,
+                'role' => $u->role,
+            ])->values()->all(),
         ]);
     }
 
