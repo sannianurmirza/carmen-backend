@@ -281,38 +281,27 @@ def _populate_three_column_esign_sheet(
     ws.page_margins.bottom = 0.6
 
     # Lebar kolom: A sebagai margin, B, C, D untuk 3 kolom tanda tangan
-    ws.column_dimensions["A"].width = 4
-    ws.column_dimensions["B"].width = 22
-    ws.column_dimensions["C"].width = 22
-    ws.column_dimensions["D"].width = 22
-    ws.column_dimensions["E"].width = 4
+    ws.column_dimensions["A"].width = 3
+    ws.column_dimensions["B"].width = 19
+    ws.column_dimensions["C"].width = 19
+    ws.column_dimensions["D"].width = 19
 
-    # Tinggi baris
-    ws.row_dimensions[1].height = 20
-    ws.row_dimensions[2].height = 18
-    ws.row_dimensions[3].height = 15
-    ws.row_dimensions[4].height = 26  # Header tabel persetujuan
-    for r in range(5, 9):
-        ws.row_dimensions[r].height = 22  # Total 88 pt untuk gambar QR
-    ws.row_dimensions[9].height = 22  # Inisial / Nama / Tanggal
-    ws.row_dimensions[10].height = 18
-
-    # Title Dokumen di Sheet ESign
-    font_company = Font(name="Calibri", size=13, bold=True, color="1F4E79")
-    font_doc_title = Font(name="Calibri", size=11, bold=True, color="000000")
-    font_header = Font(name="Calibri", size=11, bold=True, color="000000")
-    font_bottom = Font(name="Calibri", size=9, bold=False, color="000000")
-    align_center = Alignment(horizontal="center", vertical="center")
-
+    # Gaya Border & Font (Sesuai Referensi Pengguna & ESign Standard)
     thin_black = Side(style="thin", color="000000")
     border_box = Border(left=thin_black, right=thin_black, top=thin_black, bottom=thin_black)
 
-    ws["B1"] = "PT. JATIM AUTOCOMP INDONESIA"
-    ws["B1"].font = font_company
-    ws["B2"] = f"LEMBAR PENGESAHAN RENCANA MENU — {catering_name.upper()}"
-    ws["B2"].font = font_doc_title
-    ws["B3"] = f"Periode: {plan.effective_menu_period} | Versi: {plan.version}"
-    ws["B3"].font = font_bottom
+    font_header = Font(name="Calibri", size=11, bold=False, color="000000")
+    font_bottom = Font(name="Calibri", size=10, bold=False, color="000000")
+    align_center = Alignment(horizontal="center", vertical="center")
+
+    # Tinggi baris
+    ws.row_dimensions[1].height = 15
+    ws.row_dimensions[2].height = 15
+    ws.row_dimensions[3].height = 15
+    ws.row_dimensions[4].height = 24  # Header tabel persetujuan
+    for r in range(5, 9):
+        ws.row_dimensions[r].height = 20  # Total 80 pt untuk gambar QR
+    ws.row_dimensions[9].height = 20  # Inisial / Nama / Tanggal
 
     # Header 3 Kolom Fisik (Kiri ke Kanan: Approved, Checked 2, Checked 1)
     headers = [
@@ -334,7 +323,7 @@ def _populate_three_column_esign_sheet(
             ws[f"{col_l}{r}"].alignment = align_center
         ws.merge_cells(f"{col_l}5:{col_l}8")
 
-    # Baris 9: Informasi Approver / Tanggal Persetujuan
+    # Baris 9: Informasi Approver / Inisial
     for col_l in ["B", "C", "D"]:
         c = ws[f"{col_l}9"]
         c.border = border_box
@@ -349,7 +338,7 @@ def _populate_three_column_esign_sheet(
     # Sequence 1: Checked 1 -> Kolom D
     seq1 = appr_map.get(1)
     if seq1 and seq1.get("status") == "APPROVED":
-        ws["D9"] = seq1.get("approved_at") or seq1.get("initial") or "Approved"
+        ws["D9"] = seq1.get("initial") or "NIA"
         qr_bytes = seq1.get("qr_png_bytes")
         if qr_bytes:
             img1 = OpenpyxlImage(io.BytesIO(qr_bytes))
@@ -360,7 +349,7 @@ def _populate_three_column_esign_sheet(
     # Sequence 2: Checked 2 -> Kolom C
     seq2 = appr_map.get(2)
     if seq2 and seq2.get("status") == "APPROVED":
-        ws["C9"] = seq2.get("approved_at") or seq2.get("initial") or "Approved"
+        ws["C9"] = seq2.get("initial") or "CAN"
         qr_bytes = seq2.get("qr_png_bytes")
         if qr_bytes:
             img2 = OpenpyxlImage(io.BytesIO(qr_bytes))
@@ -371,7 +360,7 @@ def _populate_three_column_esign_sheet(
     # Sequence 3: Approved -> Kolom B
     seq3 = appr_map.get(3)
     if seq3 and seq3.get("status") == "APPROVED":
-        ws["B9"] = seq3.get("approved_at") or seq3.get("initial") or "Approved"
+        ws["B9"] = seq3.get("initial") or ""
         qr_bytes = seq3.get("qr_png_bytes")
         if qr_bytes:
             img3 = OpenpyxlImage(io.BytesIO(qr_bytes))
