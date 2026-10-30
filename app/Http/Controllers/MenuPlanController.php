@@ -78,7 +78,7 @@ class MenuPlanController extends Controller
             return response()->json(['detail' => 'Rencana menu tidak ditemukan.'], 404);
         }
 
-        if ($user && $user->role === 'user' && $user->catering_id && (int)$plan->catering_id !== (int)$user->catering_id) {
+        if ($user && $user->role === 'user' && $user->catering_id && $plan->catering_id !== null && (int)$plan->catering_id !== (int)$user->catering_id) {
             return response()->json(['detail' => 'Akses ditolak.'], 403);
         }
 

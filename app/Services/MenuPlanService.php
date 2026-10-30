@@ -38,9 +38,16 @@ class MenuPlanService
 
         // Vendor isolation
         if ($user->role === 'user') {
-            $query->where('catering_id', $user->catering_id);
-        } elseif (!empty($filters['catering_id'])) {
-            $query->where('catering_id', (int) $filters['catering_id']);
+            $query->where(function ($q) use ($user) {
+                $q->where('catering_id', $user->catering_id)
+                  ->orWhereNull('catering_id');
+            });
+        } elseif (!empty($filters['catering_id']) && $filters['catering_id'] !== 'all') {
+            if ($filters['catering_id'] === 'all_caterings' || $filters['catering_id'] === 'null' || $filters['catering_id'] === '0') {
+                $query->whereNull('catering_id');
+            } else {
+                $query->where('catering_id', (int) $filters['catering_id']);
+            }
         }
 
         if (!empty($filters['effective_year'])) {
@@ -57,6 +64,7 @@ class MenuPlanService
 
         $records = $query->orderBy('effective_year', 'desc')
             ->orderBy('effective_month', 'desc')
+            ->orderByRaw('CASE WHEN catering_id IS NULL THEN 0 ELSE 1 END')
             ->orderBy('catering_id', 'asc')
             ->orderBy('version', 'desc')
             ->get();
@@ -73,22 +81,31 @@ class MenuPlanService
             throw new HttpException(400, 'effective_month harus bernilai antara 1 dan 12.');
         }
 
-        $cateringId = (int) ($payload['catering_id'] ?? 0);
-        $cat = Catering::find($cateringId);
-        if (!$cat) {
-            throw new HttpException(404, "Katering ID {$cateringId} tidak ditemukan.");
-        }
-        if (!$cat->is_active) {
-            throw new HttpException(400, "Katering '{$cat->nama}' sedang tidak aktif.");
+        $rawCatId = $payload['catering_id'] ?? null;
+        $cateringId = ($rawCatId === 'all' || $rawCatId === '' || $rawCatId === null || $rawCatId === 0 || $rawCatId === '0') ? null : (int) $rawCatId;
+
+        $cat = null;
+        if ($cateringId !== null) {
+            $cat = Catering::find($cateringId);
+            if (!$cat) {
+                throw new HttpException(404, "Katering ID {$cateringId} tidak ditemukan.");
+            }
+            if (!$cat->is_active) {
+                throw new HttpException(400, "Katering '{$cat->nama}' sedang tidak aktif.");
+            }
         }
 
         $year = (int) ($payload['effective_year'] ?? 0);
 
         return DB::transaction(function () use ($payload, $user, $cateringId, $cat, $year, $month) {
-            $existingVersions = MonthlyMenuPlan::where('catering_id', $cateringId)
-                ->where('effective_year', $year)
-                ->where('effective_month', $month)
-                ->pluck('version');
+            $qVersions = MonthlyMenuPlan::where('effective_year', $year)
+                ->where('effective_month', $month);
+            if ($cateringId !== null) {
+                $qVersions->where('catering_id', $cateringId);
+            } else {
+                $qVersions->whereNull('catering_id');
+            }
+            $existingVersions = $qVersions->pluck('version');
 
             $nextVersion = $existingVersions->isEmpty() ? 1 : ($existingVersions->max() + 1);
             $now = Carbon::now('UTC');
@@ -123,7 +140,7 @@ class MenuPlanService
         }
 
         // Vendor isolation
-        if ($user->role === 'user' && $user->catering_id !== $plan->catering_id) {
+        if ($user->role === 'user' && $plan->catering_id !== null && (int)$user->catering_id !== (int)$plan->catering_id) {
             throw new HttpException(403, 'Akses ditolak. Anda tidak memiliki akses ke katering ini.');
         }
 
@@ -147,12 +164,14 @@ class MenuPlanService
         }
 
         // Operational Lock Check
-        $lockService = app(OperationalLockService::class);
-        $sampleDate = sprintf('%04d-%02d-01', $plan->effective_year, $plan->effective_month);
-        $lockStatus = $lockService->checkOperationalDataLocked($plan->catering_id, $sampleDate);
-        if ($lockStatus['is_locked']) {
-            throw new HttpException(400, "Operasi ditolak: Data terkunci karena {$lockStatus['lock_reason']}");
-        }
+        if ($plan->catering_id) {
+            $lockService = app(OperationalLockService::class);
+            $sampleDate = sprintf('%04d-%02d-01', $plan->effective_year, $plan->effective_month);
+            $lockStatus = $lockService->checkOperationalDataLocked($plan->catering_id, $sampleDate);
+            if ($lockStatus['is_locked']) {
+                throw new HttpException(400, "Operasi ditolak: Data terkunci karena {$lockStatus['lock_reason']}");
+            }
+                }
 
         $items = $payload['items'] ?? [];
         $seenKeys = [];
@@ -236,9 +255,11 @@ class MenuPlanService
         }
 
         $cat = $plan->catering;
-        if (!$cat || !$cat->is_active) {
+        if ($plan->catering_id !== null) {
+            if (!$cat || !$cat->is_active) {
             $catName = $cat ? $cat->nama : (string) $plan->catering_id;
             throw new HttpException(400, "Katering '{$catName}' sedang tidak aktif atau tidak ditemukan.");
+        }
         }
 
         $items = MonthlyMenuItem::where('plan_id', $plan->id)->get();
@@ -426,23 +447,31 @@ class MenuPlanService
         }
 
         // Operational Lock Check
-        $lockService = app(OperationalLockService::class);
-        $sampleDate = sprintf('%04d-%02d-01', $plan->effective_year, $plan->effective_month);
-        $lockStatus = $lockService->checkOperationalDataLocked($plan->catering_id, $sampleDate);
-        if ($lockStatus['is_locked']) {
-            throw new HttpException(400, "Operasi ditolak: Data terkunci karena {$lockStatus['lock_reason']}");
+        if ($plan->catering_id) {
+            $lockService = app(OperationalLockService::class);
+            $sampleDate = sprintf('%04d-%02d-01', $plan->effective_year, $plan->effective_month);
+            $lockStatus = $lockService->checkOperationalDataLocked($plan->catering_id, $sampleDate);
+            if ($lockStatus['is_locked']) {
+                throw new HttpException(400, "Operasi ditolak: Data terkunci karena {$lockStatus['lock_reason']}");
+            }
         }
 
         return DB::transaction(function () use ($plan) {
             $now = Carbon::now('UTC');
 
             // 1. Nonaktifkan versi lain yang sedang aktif untuk katering dan bulan/tahun yang sama
-            MonthlyMenuPlan::where('catering_id', $plan->catering_id)
-                ->where('effective_year', $plan->effective_year)
+            $deactQuery = MonthlyMenuPlan::where('effective_year', $plan->effective_year)
                 ->where('effective_month', $plan->effective_month)
                 ->where('is_active', true)
-                ->where('id', '!=', $plan->id)
-                ->update([
+                ->where('id', '!=', $plan->id);
+
+            if ($plan->catering_id !== null) {
+                $deactQuery->where('catering_id', $plan->catering_id);
+            } else {
+                $deactQuery->whereNull('catering_id');
+            }
+
+            $deactQuery->update([
                     'is_active' => false,
                     'status' => 'SUPERSEDED',
                     'updated_at' => $now,
@@ -485,10 +514,14 @@ class MenuPlanService
         $year = $tgl->year;
         $month = $tgl->month;
 
-        $activePlan = MonthlyMenuPlan::where('catering_id', $cateringId)
+        $activePlan = MonthlyMenuPlan::where(function ($q) use ($cateringId) {
+                $q->where('catering_id', $cateringId)
+                  ->orWhereNull('catering_id');
+            })
             ->where('effective_year', $year)
             ->where('effective_month', $month)
             ->where('is_active', true)
+            ->orderByRaw('CASE WHEN catering_id = ? THEN 0 ELSE 1 END', [$cateringId])
             ->first();
 
         if (!$activePlan) {
@@ -563,7 +596,7 @@ class MenuPlanService
         MonthlyMenuItem::where('plan_id', $plan->id)->delete();
         $plan->delete();
 
-        $cName = $plan->catering ? $plan->catering->nama : "Katering ID {$plan->catering_id}";
+        $cName = $plan->catering ? $plan->catering->nama : "Semua Katering (PT JAI)";
         return ['success' => true, 'message' => "Rencana menu {$cName} ({$plan->effective_menu_period} v{$plan->version}) berhasil dihapus."];
     }
 
@@ -572,7 +605,7 @@ class MenuPlanService
         return [
             'id' => $p->id,
             'catering_id' => $p->catering_id,
-            'catering_nama' => $p->catering ? $p->catering->nama : null,
+            'catering_nama' => $p->catering ? $p->catering->nama : 'Semua Katering (PT JAI)',
             'submission_period' => $p->submission_period,
             'effective_menu_period' => $p->effective_menu_period,
             'effective_year' => $p->effective_year,
