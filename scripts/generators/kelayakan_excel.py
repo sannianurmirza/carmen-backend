@@ -234,7 +234,26 @@ def generate_kelayakan_excel_bytes(
     for col_l in ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"]:
         ws[f"{col_l}{curr_row}"].border = thick_bottom
 
-    ws.print_area = f"'Rekapitulasi'!$A$1:$M${curr_row}"
+    # Keterangan Kategori Penilaian Bintang
+    legend_start = curr_row + 2
+    ws.merge_cells(f"A{legend_start}:M{legend_start}")
+    ws[f"A{legend_start}"] = "KETERANGAN KATEGORI PENILAIAN KELAYAKAN (BINTANG 1 s/d 5):"
+    ws[f"A{legend_start}"].font = Font(name="Calibri", size=10, bold=True, color="1E3A8A")
+
+    ws.merge_cells(f"A{legend_start+1}:M{legend_start+1}")
+    ws[f"A{legend_start+1}"] = "1. Kelayakan Menu & Porsi : Bintang 5: Menu dan porsi sesuai | 4: Menu tidak sesuai & porsi sesuai | 3: Menu sesuai & porsi tidak sesuai | 2: Menu dan porsi tidak sesuai | 1: Menu dan porsi tidak layak"
+    ws[f"A{legend_start+1}"].font = Font(name="Calibri", size=9, bold=False, color="374151")
+
+    ws.merge_cells(f"A{legend_start+2}:M{legend_start+2}")
+    ws[f"A{legend_start+2}"] = "2. Kualitas Rasa : Bintang 5: Sedap & lezat | 4: Enak | 3: Cukup | 2: Tidak enak (terlalu asin) | 1: Basi"
+    ws[f"A{legend_start+2}"].font = Font(name="Calibri", size=9, bold=False, color="374151")
+
+    ws.merge_cells(f"A{legend_start+3}:M{legend_start+3}")
+    ws[f"A{legend_start+3}"] = "3. Kondisi Rantang : Bintang 5: Utuh dan bersih | 4: Pecah dan kotor | 3: Pecah | 2: Kotor | 1: Bau sabun"
+    ws[f"A{legend_start+3}"].font = Font(name="Calibri", size=9, bold=False, color="374151")
+
+    end_legend = legend_start + 3
+    ws.print_area = f"'Rekapitulasi'!$A$1:$M${end_legend}"
 
     buf = io.BytesIO()
     wb.save(buf)
