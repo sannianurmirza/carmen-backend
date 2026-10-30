@@ -67,4 +67,18 @@ return Application::configure(basePath: dirname(__DIR__))
                 'detail' => 'Akses ditolak.'
             ], 403);
         });
+
+        $exceptions->render(function (\Throwable $e, Request $request) {
+            \Illuminate\Support\Facades\Log::error('[SERVER_ERROR] ' . $e->getMessage(), [
+                'exception' => $e,
+                'path' => $request->path(),
+                'ip' => $request->ip()
+            ]);
+            $detail = config('app.debug')
+                ? ($e->getMessage() ?: get_class($e))
+                : 'Terjadi kesalahan internal pada server. Silakan hubungi administrator.';
+            return response()->json([
+                'detail' => $detail
+            ], 500);
+        });
     })->create();

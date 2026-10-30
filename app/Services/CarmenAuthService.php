@@ -109,8 +109,6 @@ class CarmenAuthService
             ?? $request->cookies->get(self::SESSION_COOKIE_NAME)
             ?? ($_COOKIE[self::SESSION_COOKIE_NAME] ?? null);
 
-        \Illuminate\Support\Facades\Log::info("[AUTH_DEBUG] resolveUser: rawToken=" . ($rawToken ? substr($rawToken, 0, 8) . '...' : 'NULL') . " cookies=" . json_encode(array_keys($request->cookies->all())));
-
         if (!$rawToken) {
             $authHeader = $request->header('Authorization');
             if ($authHeader && Str::startsWith($authHeader, 'Bearer ')) {
@@ -133,14 +131,24 @@ class CarmenAuthService
 
         $now = Carbon::now();
         if ($session->expires_at->lessThanOrEqualTo($now)) {
-            $session->revoked_at = $now;
-            $session->save();
+            try {
+                $session->revoked_at = $now;
+                $session->save();
+            } catch (\Throwable $e) {
+                // Non-fatal
+            }
             throw new HttpException(401, 'Sesi telah kedaluwarsa. Silakan masuk kembali.');
         }
 
-        // Update last activity
-        $session->last_activity_at = $now;
-        $session->save();
+        // Throttle last activity update to once every 5 minutes to prevent concurrent DB lock contention
+        if (!$session->last_activity_at || $now->diffInMinutes($session->last_activity_at) >= 5) {
+            try {
+                $session->last_activity_at = $now;
+                $session->save();
+            } catch (\Throwable $e) {
+                \Illuminate\Support\Facades\Log::warning('[AUTH] Non-fatal: failed to update last_activity_at: ' . $e->getMessage());
+            }
+        }
 
         $user = User::find($session->user_id);
         if (!$user || !$user->is_active) {
