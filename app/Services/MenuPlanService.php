@@ -259,10 +259,11 @@ class MenuPlanService
         $cat = $plan->catering;
         if ($plan->catering_id !== null) {
             if (!$cat || !$cat->is_active) {
-            $catName = $cat ? $cat->nama : (string) $plan->catering_id;
-            throw new HttpException(400, "Katering '{$catName}' sedang tidak aktif atau tidak ditemukan.");
+                $catName = $cat ? $cat->nama : (string) $plan->catering_id;
+                throw new HttpException(400, "Katering '{$catName}' sedang tidak aktif atau tidak ditemukan.");
+            }
         }
-        }
+        $catNama = $cat ? $cat->nama : 'Semua Katering (PT JAI)';
 
         $items = MonthlyMenuItem::where('plan_id', $plan->id)->get();
         if ($items->isEmpty()) {
@@ -338,9 +339,9 @@ class MenuPlanService
         }
 
 
-        return DB::transaction(function () use ($plan, $cat, $user, $seq1, $seq2, $seq3) {
+        return DB::transaction(function () use ($plan, $cat, $catNama, $user, $seq1, $seq2, $seq3) {
             $now = Carbon::now('UTC');
-            $cleanCat = preg_replace('/[^a-zA-Z0-9_\-]/', '_', $cat->nama);
+            $cleanCat = preg_replace('/[^a-zA-Z0-9_\-]/', '_', $catNama);
             $monthPad = str_pad($plan->effective_month, 2, '0', STR_PAD_LEFT);
             $filename = "Rencana_Menu_{$cleanCat}_{$plan->effective_year}_{$monthPad}_v{$plan->version}.xlsx";
             $storedPath = "approvals/" . bin2hex(random_bytes(6)) . "_{$filename}";
@@ -353,7 +354,7 @@ class MenuPlanService
                 'stored_file_path' => $storedPath,
                 'file_size_bytes' => 0,
                 'mime_type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-                'note' => "Rencana Menu {$cat->nama} Periode {$plan->effective_menu_period} (v{$plan->version})",
+                'note' => "Rencana Menu {$catNama} Periode {$plan->effective_menu_period} (v{$plan->version})",
                 'status' => 'PENDING',
                 'requested_at' => $now,
                 'created_at' => $now,
