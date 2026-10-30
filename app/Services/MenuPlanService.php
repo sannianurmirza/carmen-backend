@@ -42,8 +42,8 @@ class MenuPlanService
                 $q->where('catering_id', $user->catering_id)
                   ->orWhereNull('catering_id');
             });
-        } elseif (!empty($filters['catering_id']) && $filters['catering_id'] !== 'all') {
-            if ($filters['catering_id'] === 'all_caterings' || $filters['catering_id'] === 'null' || $filters['catering_id'] === '0') {
+        } elseif (isset($filters['catering_id']) && $filters['catering_id'] !== '' && $filters['catering_id'] !== 'all') {
+            if ($filters['catering_id'] === 'all_caterings' || $filters['catering_id'] === 'null' || $filters['catering_id'] === '0' || $filters['catering_id'] === 0) {
                 $query->whereNull('catering_id');
             } else {
                 $query->where('catering_id', (int) $filters['catering_id']);
@@ -85,7 +85,7 @@ class MenuPlanService
         $cateringId = ($rawCatId === 'all' || $rawCatId === '' || $rawCatId === null || $rawCatId === 0 || $rawCatId === '0') ? null : (int) $rawCatId;
 
         $cat = null;
-        if ($cateringId !== null) {
+        if ($cateringId !== null && $cateringId > 0) {
             $cat = Catering::find($cateringId);
             if (!$cat) {
                 throw new HttpException(404, "Katering ID {$cateringId} tidak ditemukan.");
@@ -93,6 +93,8 @@ class MenuPlanService
             if (!$cat->is_active) {
                 throw new HttpException(400, "Katering '{$cat->nama}' sedang tidak aktif.");
             }
+        } else {
+            $cateringId = null;
         }
 
         $year = (int) ($payload['effective_year'] ?? 0);
@@ -497,13 +499,17 @@ class MenuPlanService
         }
         $shiftTitle = ucfirst($shiftNorm);
 
-        $cat = Catering::find($cateringId);
-        if (!$cat) {
-            throw new HttpException(404, "Katering ID {$cateringId} tidak ditemukan.");
+        $cat = null;
+        if ($cateringId > 0) {
+            $cat = Catering::find($cateringId);
+            if (!$cat) {
+                throw new HttpException(404, "Katering ID {$cateringId} tidak ditemukan.");
+            }
         }
+        $catNama = $cat ? $cat->nama : 'Semua Katering (PT JAI)';
 
         // Vendor isolation check
-        if ($user->role === 'user') {
+        if ($user->role === 'user' && $cateringId > 0) {
             $userCatId = $user->catering_id;
             if ($userCatId !== null && (int) $userCatId !== $cateringId) {
                 throw new HttpException(403, 'Akses ditolak: Vendor tidak diizinkan mengakses data katering lain.');
@@ -514,21 +520,26 @@ class MenuPlanService
         $year = $tgl->year;
         $month = $tgl->month;
 
-        $activePlan = MonthlyMenuPlan::where(function ($q) use ($cateringId) {
+        $activePlanQuery = MonthlyMenuPlan::where('effective_year', $year)
+            ->where('effective_month', $month)
+            ->where('is_active', true);
+
+        if ($cateringId > 0) {
+            $activePlanQuery->where(function ($q) use ($cateringId) {
                 $q->where('catering_id', $cateringId)
                   ->orWhereNull('catering_id');
-            })
-            ->where('effective_year', $year)
-            ->where('effective_month', $month)
-            ->where('is_active', true)
-            ->orderByRaw('CASE WHEN catering_id = ? THEN 0 ELSE 1 END', [$cateringId])
-            ->first();
+            })->orderByRaw('CASE WHEN catering_id = ? THEN 0 ELSE 1 END', [$cateringId]);
+        } else {
+            $activePlanQuery->whereNull('catering_id');
+        }
+
+        $activePlan = $activePlanQuery->first();
 
         if (!$activePlan) {
             return [
                 'has_menu' => false,
                 'catering_id' => $cateringId,
-                'catering_nama' => $cat->nama,
+                'catering_nama' => $catNama,
                 'tanggal' => $tgl->toDateString(),
                 'shift' => $shiftTitle,
                 'message' => 'Menu resmi belum tersedia atau belum berstatus ACTIVE untuk katering dan periode ini.',
@@ -547,7 +558,7 @@ class MenuPlanService
             return [
                 'has_menu' => false,
                 'catering_id' => $cateringId,
-                'catering_nama' => $cat->nama,
+                'catering_nama' => $catNama,
                 'tanggal' => $tgl->toDateString(),
                 'shift' => $shiftTitle,
                 'menu_plan_id' => $activePlan->id,
@@ -564,7 +575,7 @@ class MenuPlanService
         return [
             'has_menu' => true,
             'catering_id' => $cateringId,
-            'catering_nama' => $cat->nama,
+            'catering_nama' => $catNama,
             'tanggal' => $tgl->toDateString(),
             'shift' => $shiftTitle,
             'menu_plan_id' => $activePlan->id,

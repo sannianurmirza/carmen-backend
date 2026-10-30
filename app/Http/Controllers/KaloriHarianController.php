@@ -133,7 +133,7 @@ class KaloriHarianController extends Controller
                 );
             }
 
-            if ((int) $refPlan->catering_id !== $cateringId) {
+            if ($refPlan->catering_id !== null && (int) $refPlan->catering_id !== $cateringId) {
                 throw new HttpException(
                     400,
                     "Rencana menu bulanan ID {$menuPlanId} milik katering lain (katering_id: {$refPlan->catering_id}) dan tidak cocok dengan katering kalori ({$cateringId})."
