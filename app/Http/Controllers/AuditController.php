@@ -36,9 +36,29 @@ class AuditController extends Controller
         $kriteria = AuditService::getAllKriteria();
         $maxPoints = AuditService::getDynamicMaxPoints();
 
+        $groupedA = [];
+        $groupedB = [];
+        foreach ($kriteria as $item) {
+            $sisi = strtoupper(trim($item->sisi ?? 'A'));
+            $kat = trim($item->kategori ?? 'UMUM');
+            if ($sisi === 'B') {
+                $groupedB[$kat][] = $item;
+            } else {
+                $groupedA[$kat][] = $item;
+            }
+        }
+
         return response()->json([
+            'all' => $kriteria,
             'kriteria' => $kriteria,
+            'grouped' => [
+                'A' => $groupedA,
+                'B' => $groupedB,
+            ],
             'max_points' => $maxPoints,
+            'maksimum_sisi_a' => $maxPoints['max_a'] ?? 0,
+            'maksimum_sisi_b' => $maxPoints['max_b'] ?? 0,
+            'total_maksimum' => $maxPoints['total_max'] ?? 0,
         ]);
     }
 
