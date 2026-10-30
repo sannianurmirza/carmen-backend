@@ -70,7 +70,7 @@ class SignatureService
                 if (in_array($reqHost, $trustedHosts, true)) {
                     $hostUrl = request()->schemeAndHttpHost();
                     if (!empty($hostUrl)) {
-                        return rtrim($hostUrl, '/') . '/catering-ir/public';
+                        return rtrim($hostUrl, '/') . '/carmen-frontend';
                     }
                 }
             }
@@ -83,7 +83,7 @@ class SignatureService
             return rtrim(trim($configuredUrl), '/');
         }
 
-        return rtrim(config('app.frontend_url', config('app.url', 'http://127.0.0.1:3000/catering-ir/public')), '/');
+        return rtrim(config('app.frontend_url', config('app.url', 'http://127.0.0.1/carmen-frontend')), '/');
     }
 
     /**

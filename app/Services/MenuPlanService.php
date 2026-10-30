@@ -346,13 +346,27 @@ class MenuPlanService
             $filename = "Rencana_Menu_{$cleanCat}_{$plan->effective_year}_{$monthPad}_v{$plan->version}.xlsx";
             $storedPath = "approvals/" . bin2hex(random_bytes(6)) . "_{$filename}";
 
+            $fileSizeBytes = 0;
+            $excelBase64 = request()->input('excel_base64');
+            if ($excelBase64 && is_string($excelBase64)) {
+                $rawBytes = base64_decode($excelBase64);
+                if ($rawBytes && strlen($rawBytes) > 100) {
+                    $storedFullPath = storage_path("app/uploads/{$storedPath}");
+                    if (!is_dir(dirname($storedFullPath))) {
+                        @mkdir(dirname($storedFullPath), 0755, true);
+                    }
+                    file_put_contents($storedFullPath, $rawBytes);
+                    $fileSizeBytes = strlen($rawBytes);
+                }
+            }
+
             $appReq = ApprovalRequest::create([
                 'delivery_type' => 'APPROVAL',
                 'requester_user_id' => $user->id,
                 'requester_name' => $user->nama,
                 'original_filename' => $filename,
                 'stored_file_path' => $storedPath,
-                'file_size_bytes' => 0,
+                'file_size_bytes' => $fileSizeBytes,
                 'mime_type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
                 'note' => "Rencana Menu {$catNama} Periode {$plan->effective_menu_period} (v{$plan->version})",
                 'status' => 'PENDING',
@@ -366,7 +380,7 @@ class MenuPlanService
                 'revision_number' => 1,
                 'original_filename' => $filename,
                 'stored_file_path' => $storedPath,
-                'file_size_bytes' => 0,
+                'file_size_bytes' => $fileSizeBytes,
                 'mime_type' => $appReq->mime_type,
                 'submitted_by' => $user->id,
                 'submitted_at' => $now,

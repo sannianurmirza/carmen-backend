@@ -41,8 +41,10 @@ $registerCarmenRoutes = function () {
     Route::get('/auth/csrf', [AuthController::class, 'csrf']);
     Route::post('/auth/login', [AuthController::class, 'login']);
 
-    // Public QR Verification endpoint
+    // Public QR Verification & Image endpoints
     Route::get('/approval/signature/verify/{token}', [SignatureController::class, 'verify']);
+    Route::get('/users/{id}/signature/qr-image', [SignatureController::class, 'showUserSignatureQrImage'])->whereNumber('id');
+    Route::get('/settings/users/{id}/signature/qr-image', [SignatureController::class, 'showUserSignatureQrImage'])->whereNumber('id');
 
     // Authenticated Auth endpoints
     Route::middleware('carmen.auth')->group(function () {
@@ -112,8 +114,6 @@ $registerCarmenRoutes = function () {
 
         Route::get('/users/{id}/signature', [SignatureController::class, 'showUserSignature'])->whereNumber('id');
         Route::get('/settings/users/{id}/signature', [SignatureController::class, 'showUserSignature'])->whereNumber('id');
-        Route::get('/users/{id}/signature/qr-image', [SignatureController::class, 'showUserSignatureQrImage'])->whereNumber('id');
-        Route::get('/settings/users/{id}/signature/qr-image', [SignatureController::class, 'showUserSignatureQrImage'])->whereNumber('id');
 
         // ---------- Stage 5: Operational Incidents & Audit Read Endpoints ----------
         // Keterlambatan

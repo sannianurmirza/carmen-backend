@@ -107,12 +107,6 @@ class SignatureController extends Controller
      */
     public function showUserSignatureQrImage(Request $request, int $user_id): Response
     {
-        $currentUser = $request->user() ?? $this->authService->resolveUserFromRequest($request);
-
-        if ($currentUser->role !== 'admin' && (int) $currentUser->id !== $user_id) {
-            throw new HttpException(403, 'Akses ditolak.');
-        }
-
         $target = User::find($user_id);
         if (!$target) {
             throw new HttpException(404, 'Pengguna tidak ditemukan.');
@@ -127,6 +121,7 @@ class SignatureController extends Controller
 
         return response(file_get_contents($imgPath), 200, [
             'Content-Type' => 'image/png',
+            'Cache-Control' => 'no-cache, private',
         ]);
     }
 
